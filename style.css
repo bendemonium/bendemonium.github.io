@@ -6,7 +6,7 @@
 .header{
     min-height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgba(249, 251, 190, 0.7),rgba(126, 213, 216, 0.7)),url(images/background.jpeg);
+    background-image: linear-gradient(rgba(70, 123, 49, 0.564),rgba(255, 255, 255, 0.855)),url(images/background.jpeg);
     background-size: cover;
     background-position: center;
     position: relative;
@@ -162,7 +162,7 @@ h3{
 }
 
 .course-col:hover{
-    box-shadow: 0 0 20px 0px rgb(18, 8, 3);
+    box-shadow: 0 0 20px 0px rgb(24, 88, 17);
 }
 @media(max-width: 700px){
     .row{
