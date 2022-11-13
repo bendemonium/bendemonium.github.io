@@ -2,12 +2,69 @@
 <html>
 
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Ridhi Bandaru</title>
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/fontawesome.min.css">
+
     </head>
 
     <body>
-        <div class="container"></div>
+        <section class="header">
+            <nav>
+                <div class="nav-links" id="navLinks">
+                    <i class="fa fa-times" onclick="hideMenu()"></i>
+                    <ul>
+                        <li><a href="">HOME</a></li>
+                        <li><a href="">HOME</a></li>
+                        <li><a href="">HOME</a></li>
+                        <li><a href="">HOME</a></li>
+                        <li><a href="">HOME</a></li>
+                    </ul>
+                </div>
+                <i class="fa fa-bars" onclick="showMenu()"></i>
+            </nav>
 
+        <div class="text-box">
+            <h1>Portfolio</h1>
+            <p>I'm literally so cool</p>
+            <a href="" class="hero-btn">Hahahahaha</a>
+        </div>    
+
+        </section>
+
+        <!-----course-->
+
+        <section class="course">
+            <h1>courses sdsfvhbg</h1>
+            <p>lorem ipsum dolor</p>
+
+            <div class="row">
+                <div class="course-col">
+                    <h3>abc</h3>
+                    <p>lorem ipsum</p>
+                </div>
+                <div class="course-col">
+                    <h3>efg</h3>
+                    <p>lorem ipsum</p>
+                </div>
+                <div class="course-col">
+                    <h3>hij</h3>
+                    <p>lorem ipsum</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-----javascript for toggle menu----->
+        <script>
+            var navLinks = document.getElementById(navLinks);
+            function showMenu(){
+                navLinks.style.right = '0';
+            }
+            function hideMenu(){
+                navLinks.style.right = '-200px';
+            }
+        </script>
     </body>
 </html>
