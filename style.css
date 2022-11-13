@@ -153,4 +153,28 @@ p{
     margin-bottom: 5%;
     padding: 20px 12px;
     box-sizing: border-box;
+    transition: 0.2s;
+}
+h3{
+    text-align: center;
+    font-weight: 600;
+    margin: 10px;
+}
+
+.course-col:hover{
+    box-shadow: 0 0 20px 0px rgb(18, 8, 3);
+}
+@media(max-width: 700px){
+    .row{
+        flex-direction: column;
+    }
+}
+
+/* ---campus---- */
+
+.campus{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 50px;
 }
