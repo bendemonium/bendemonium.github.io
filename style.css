@@ -6,7 +6,7 @@
 .header{
     min-height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgba(70, 123, 49, 0.564),rgba(255, 255, 255, 0.855)),url(images/background.jpeg);
+    background-image: linear-gradient(rgba(154, 58, 14, 0.587),rgba(161, 134, 105, 0.855)),url(images/background.jpeg);
     background-size: cover;
     background-position: center;
     position: relative;
@@ -36,13 +36,14 @@ nav img{
 
 .nav-links ul li a{
     color: rgb(255, 255, 255);
-    text-decoration: none;
+    text-decoration: solid;
     font-size: 15px;
+    font-style: normal;
 }
 .nav-links ul li ::after{
     content: '';
     width: 0%;
-    height: 2px;
+    height: 10px;
     background: #a95829;
     display: block;
     margin: auto;
@@ -62,7 +63,19 @@ nav img{
     text-align: center;
 }
 .text-box h1{
-    font-size: 62px;
+    font-size: 80px;
+    -webkit-text-stroke: #c8c8c8;
+    color: transparent;
+    background-image: linear-gradient(white, white);
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-position: -600px 0;
+    animation: backcolor 1s linear infinite;
+}
+@keyframes backcolor{
+    100%{
+        background-position: 0 0;
+    }
 }
 .text-box p{
     margin: 10px 0 40px;
