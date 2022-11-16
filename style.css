@@ -35,7 +35,7 @@ nav img{
 }
 
 .nav-links ul li a{
-    color: rgb(255, 255, 255);
+    color: rgb(215, 200, 200);
     text-decoration: solid;
     font-size: 15px;
     font-style: normal;
@@ -55,7 +55,7 @@ nav img{
 
 .text-box{
     width: 90%;
-    color: rgb(254, 254, 254);
+    color: rgb(215, 200, 200);
     position: absolute;
     top: 40%;
     left: 50%;
@@ -69,7 +69,7 @@ nav img{
 
 .text-box2{
     width: 90%;
-    color: rgb(254, 254, 254);
+    color: rgb(215, 200, 200);
     position: absolute;
     top: 60%;
     left: 50%;
