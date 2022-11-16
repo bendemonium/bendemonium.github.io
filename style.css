@@ -6,7 +6,7 @@
 .header{
     min-height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgba(154, 58, 14, 0.587),rgba(161, 134, 105, 0.855)),url(images/background.jpeg);
+    background-image: linear-gradient(rgba(133, 64, 32, 0.957),rgba(161, 149, 149, 0.433)),url(images/B8A7EC2A-8971-47E7-BE02-D09554EC0692_Original.jpg);
     background-size: cover;
     background-position: center;
     position: relative;
@@ -44,7 +44,7 @@ nav img{
     content: '';
     width: 0%;
     height: 10px;
-    background: #a95829;
+    background: #aa9487;
     display: block;
     margin: auto;
     transition: 0.5s;
@@ -55,46 +55,46 @@ nav img{
 
 .text-box{
     width: 90%;
-    color: rgb(85, 48, 29);
+    color: rgb(254, 254, 254);
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform:translate(-50%,-50%);
     text-align: center;
 }
+
 .text-box h1{
-    font-size: 80px;
-    -webkit-text-stroke: #c8c8c8;
-    color: transparent;
-    background-image: linear-gradient(white, white);
-    background-repeat: no-repeat;
-    -webkit-background-clip: text;
-    background-position: -600px 0;
-    animation: backcolor 1s linear infinite;
+    font-size: 60px;
 }
-@keyframes backcolor{
-    100%{
-        background-position: 0 0;
-    }
+
+.text-box2{
+    width: 90%;
+    color: rgb(254, 254, 254);
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    text-align: center;
 }
-.text-box p{
-    margin: 10px 0 40px;
-    font-size: 14px;
+.text-box2 p{
+    font-size: 15px;
+    padding: 0.3in;
     color: aliceblue;
+    background-color: #160d0838;
 }
 
 .hero-btn{
     display: block;
     text-decoration: none;
     color: #ffffff;
-    padding: 12px 34px;
-    font-size: 13px;
+    padding: 10px 34px;
+    font-size: 14px;
     background: transparent;
     position: relative;
     cursor: pointer;
 }
 .hero-btn:hover{
-    background: #baa998;
+    background: #baa998a2;
     transition: 0.5s;
 }
 nav .fa{
@@ -110,7 +110,7 @@ nav .fa{
     }
     .nav-links{
         position: absolute;
-        background: #baa998;
+        background: #baa998c8;
         height: 100vh;
         width: 200px;
         top: 0;
@@ -130,14 +130,32 @@ nav .fa{
         padding: 30px;
     }
 }
+/* about */
+
+.about{
+    width: 100%;
+    margin: auto;
+    background-color: #aa948726;
+}
+
+.picture{
+    padding: 1in;
+}
+
+.imgprof{
+    border: #aa9487;
+    border-radius: 6px;
+    width: 3in;
+}
 
 /*-----course------*/
 
 .course{
-    width: 80%;
+    width: 90%;
     margin: auto;
     text-align: center;
     padding-top: 100px;
+    background-color: #aa948728;
 }
 
 h1{

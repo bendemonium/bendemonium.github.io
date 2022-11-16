@@ -15,24 +15,32 @@
                 <div class="nav-links" id="navLinks">
                     <i class="fa fa-times" onclick="hideMenu()"></i>
                     <ul>
-                        <li><a href="">PRESENT</a></li>
-                        <li><a href="">PAST</a></li>
-                        <li><a href="">FUTURE</a></li>
-                        <li><a href="">CV</a></li>
-                        <li><a href="">CONTACT</a></li>
+                        <li><a href=""><b>HOME</b></a></li>
+                        <li><a href=""><b>ABOUT</b></a></li>
+                        <li><a href=""><b>CV</b></a></li>
+                        <li><a href=""><b>CONTACT</b></a></li>
                     </ul>
                 </div>
                 <i class="fa fa-bars" onclick="showMenu()"></i>
             </nav>
 
         <div class="text-box">
-            <h1 class="intro">Hi, I'm Ridhi!</h1>
-            <p>I'm literally so cool</p>
-            <a href="" class="hero-btn">WHAT I'M CURRENTLY WORKING ON</a>
-            <a href="" class="hero-btn">PROJECTS AND EXPERIENCE</a>
-            <a href="" class="hero-btn">CV</a>
-            <a href="" class="hero-btn">CURRENTLY READING</a>
+            <h1><span class="auto-input"></span></h1>
         </div>    
+        <div class="text-box2">
+            <p>undergraduate senior @ BITS Pilani - Hyderabad Campus, intern @ Dell R&D, research alignments in data science and computational biology-- computational omics, epigentic expression, structural transcriptomics</p>
+            <a href="" class="hero-btn"><b>RESEARCH INTERESTS</b></a>
+            <a href="" class="hero-btn"><b>PROJECTS AND EXPERIENCE</b></a>
+            <a href="" class="hero-btn"><b>CURRENTLY WORKING ON</b></a>
+        </div>    
+
+        </section>
+        <!-- about me -->
+
+        <section class="about">
+            <div class="picture">
+                <img src="images/666C7EB5-668B-4EEB-8DCF-6047CA4383A2.jpeg" class="imgprof">
+            </div>
 
         </section>
 
@@ -75,6 +83,17 @@
             function hideMenu(){
                 navLinks.style.right = '-200px';
             }
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script></script>
+        <script>
+            var typed = new Typed(".auto-input", {
+                strings: ["it's me", "hi! ^200", "I'm Ridhi Bandaru, it's me", "I'm Ridhi Bandaru"],
+                typeSpeed: 50,
+                backSpeed: 30,
+                smartBackspace: true,
+                loop: false,
+                showCursor: false
+            })
         </script>
     </body>
 </html>
