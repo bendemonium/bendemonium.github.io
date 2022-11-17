@@ -7,9 +7,9 @@
 .header_contact{
     min-height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgb(90, 32, 6),rgba(80, 87, 84, 0.433)), url(images/background.jpeg);
-    background-size: 4in;
+    background-image: linear-gradient(rgb(90, 32, 6),rgba(80, 87, 84, 0.433)), url(images/cellbg.webp);
     background-position: center;
+    background-size: 40%;
     position: relative;
 }
 nav{
@@ -59,8 +59,11 @@ nav .fa{
 }
 
 .cont{
+    position: relative;
     text-align: left;
     font-size: 14px;
-    color: beige;
+    color: rgb(231, 215, 167);
     font-weight: 100;
+    width: 80%;
+    padding: 10%;
 }
