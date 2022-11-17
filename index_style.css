@@ -6,7 +6,7 @@
 .header{
     min-height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgb(53, 21, 2),rgba(80, 87, 84, 0.433)), url(images/B8A7EC2A-8971-47E7-BE02-D09554EC0692_Original.jpg);
+    background-image: linear-gradient(rgb(53, 21, 2),rgba(80, 87, 84, 0.208)), url(images/home_bg.jpg);
     background-size: cover;
     background-position: center;
     position: relative;
@@ -103,7 +103,7 @@ nav .fa{
 
 @media(max-width: 700px){
     .text-box h1{
-        font-size: 20px;
+        font-size: 40px;
     }
     .nav-links ul li{
         display: block;
@@ -139,13 +139,13 @@ nav .fa{
 }
 
 .picture{
-    padding: 1in;
+    padding: 8%;
 }
 
 .imgprof{
     border: #aa9487;
     border-radius: 6px;
-    width: 3in;
+    width: 30%;
 }
 
 /*-----course------*/
