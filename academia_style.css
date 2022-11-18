@@ -6,13 +6,49 @@
 
 body{
     min-height: 100vh;
-    background-image: linear-gradient(rgba(191, 182, 175, 0.95),rgba(255, 255, 255, 0.842)), url(images/cellbg.webp);
+    background-image: linear-gradient(rgba(210, 200, 193, 0.958),rgba(255, 255, 255, 0.973)), url(images/cellbg.webp);
     background-position: center;
     background-size: 40%;
     position: relative;
 }
+
+.side-nav{
+    width: 25%;
+    height: 100%;
+    background: rgba(121, 126, 113, 0.125);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.side-links{
+    top: 10%;
+    list-style: none;
+    position: relative;
+    text-align: left;
+}
+
+.side-links li a{
+    color: #5e6155;
+    text-decoration: none;
+    font-size: 14px;
+    display: block;
+    padding: 10px 0;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+    text-indent: 40px;
+}
+
+.side-links li a:hover{
+    text-shadow: 0 0 0.6px rgb(10, 10, 2);
+    display: flex;
+    background-color: #5e615527;
+    transition: 0.2s;
+}
+
 .header{
-    min-height: 100vh;
+    min-height: 10vh;
     width: 100%;
     position: relative;
 }
@@ -62,37 +98,12 @@ nav .fa{
     display: none;
 }
 
-.side-nav{
-    width: 30%;
-    height: 100%;
-    background: rgba(121, 126, 113, 0.125);
-    position: fixed;
-    top: 0;
-    left: 0;
+.research_interests{
+    color: #30322b;
+    position: absolute;
+    left: 34%;
 }
 
-.side-links{
-    top: 10%;
-    list-style: none;
-    position: relative;
-    text-align: left;
+.items{
+    background-color: #b5aea8;
 }
-
-.side-links li a{
-    color: #5e6155;
-    text-decoration: none;
-    font-size: 13px;
-    display: block;
-    padding: 10px 0;
-    background: transparent;
-    position: relative;
-    cursor: pointer;
-    left: 40px;
-}
-
-.side-links li a:hover{
-    text-shadow: 0 0 0.6px rgb(10, 10, 2);
-    transition: 0.2s;
-    left: 45px;
-}
-
