@@ -38,22 +38,15 @@ nav img{
     position: relative;
 }
 .nav-links ul li a{
-    color: rgb(215, 200, 200);
+    color: rgb(157, 148, 148);
     text-decoration: solid;
     font-size: 15px;
     font-style: normal;
 }
-.nav-links ul li ::after{
-    content: '';
-    width: 0%;
-    height: 10px;
-    background: #aa9487;
-    display: block;
-    margin: auto;
-    transition: 0.5s;
-}
-.nav-links ul li :hover::after{
-        width: 100%;
+
+.nav-links ul li :hover{
+    text-shadow: 0 0 0.6px rgb(46, 46, 3);
+    transition: 0.4s;
 }
 
 
@@ -164,9 +157,9 @@ nav .fa{
 }
 .imgprof{
     border: #aa9487;
-    border-radius: 6px;
+    border-radius: 50px;
     width: 30%;
-    padding-left: 50px;
+    padding-left: 60px;
 }
 
 /*-----course------*/

@@ -6,9 +6,9 @@
 
 body{
     min-height: 100vh;
-    background-image: linear-gradient(rgba(210, 200, 193, 0.958),rgba(255, 255, 255, 0.973)), url(images/cellbg.webp);
+    background-image: linear-gradient(rgba(239, 236, 234, 0.976),rgba(255, 255, 255, 0.973)), url(images/cellbg.webp);
     background-position: center;
-    background-size: 40%;
+    background-size: 75%;
     position: relative;
 }
 

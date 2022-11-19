@@ -16,7 +16,8 @@
                 <div class="nav-links" id="navLinks">
                     <i class="fa fa-times" onclick="hideMenu()"></i>
                     <ul>
-                        <li><a href="index.html"><b style="color:rgb(234, 179, 69) ;">HOME</b></a></li>
+                        <li><a href="tldr.html">TL;DR</a></li>
+                        <li><a href="index.html"><b style="color:rgb(85, 62, 15) ;">HOME</b></a></li>
                         <li><a href="academia.html">ACADEMIA</a></li>
                         <li><a href="contact.html">CONTACT</a></li>
                         <li><a href="portfolio.html">PORTFOLIO</a></li>
@@ -52,10 +53,10 @@
                     <p>I am an undergraduate senior pursuing a bachelors of engineering degree at 
                         <a href="https://www.bits-pilani.ac.in/hyderabad/" target="_blank">Birla Institute of Technology
                         and Science, Pilani - Hyderabad Campus, India.</a> I major in electroics and instrumentation 
-                        engineering and have a minor in robotics and automation. I focus my work on computational biology 
+                        engineering and did a minor in robotics and automation. I focus my work on computational biology 
                         and data science.</p>
-                    <p>Currently, I work with <a href="https://scholar.google.com/citations?user=oOaYy6AAAAAJ&hl=en">
-                        Dr Amartya Sanyal</a> on problems related to epigentic expression. This work entails NGS mapping pipeline 
+                    <p>Currently, I work with <a href="https://scholar.google.com/citations?user=oOaYy6AAAAAJ&hl=en" target="_blank">
+                        Dr Amartya Sanyal</a> on problems related to epigenetic expression. This work entails NGS mapping pipeline 
                         for RNA-Seq and ChIP-Seq data, and aligners like Bowtie2 and STAR.</p>
                     <p>My main goal lies in leveraging my multifacted background in electronics, transduction, data science, and
                         robotics to unravel paradigm shifters in areas like sensory omics and structural transcriptomics.</p>
@@ -114,6 +115,23 @@
                 loop: false,
                 showCursor: false
             })
+        </script>
+        <script>
+            function myFunction() {
+            var dots = document.getElementById("dots");
+            var moreText = document.getElementById("more");
+            var btnText = document.getElementById("myBtn");
+
+            if (dots.style.display === "none") {
+                dots.style.display = "inline";
+                btnText.innerHTML = "Read more";
+                moreText.style.display = "none";
+            } else {
+                dots.style.display = "none";
+                btnText.innerHTML = "Read less";
+                moreText.style.display = "inline";
+            }
+}
         </script>
     </body>
 </html>
