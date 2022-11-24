@@ -35,7 +35,7 @@ body{
     padding-top: 10%;
     padding-right: 20%;
     text-align: justify;
-    padding-bottom: 0%;
+    padding-bottom: 7%;
 }
 
 .text-ab2 p{
@@ -47,8 +47,10 @@ body{
     height: 90%;
     width: 30%;
     border: #aa9487;
-    padding-left: 60px;
+    padding-left: 7%;
+    padding-bottom: 7%;
     border-radius: 10%;
+
 }
 
 /* con */
