@@ -31,11 +31,20 @@ body{
     position: absolute;
     font-size: 40px;
 }
+
+
+
 .text-ab2{
     padding-top: 10%;
     padding-right: 20%;
     text-align: justify;
     padding-bottom: 7%;
+}
+a{
+    font:bold;
+}
+a:visited{
+    font-style: rgb(186, 124, 134);
 }
 
 .text-ab2 p{
@@ -51,6 +60,11 @@ body{
     padding-bottom: 7%;
     border-radius: 10%;
 
+}
+
+.imgprof:hover{
+    border: 20px rgb(255, 225, 56);
+    transition: 0.2s;
 }
 
 /* con */
