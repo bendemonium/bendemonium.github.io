@@ -7,9 +7,9 @@
 .header_contact{
     min-height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgb(90, 32, 6),rgba(80, 87, 84, 0.433)), url(images/gggg.jpeg);
-    background-size: 40%;
+    background-image: linear-gradient(rgb(90, 32, 6),rgba(80, 87, 84, 0.433)), url(../images/cellbg.webp);
     background-position: center;
+    background-size: 40%;
     position: relative;
 }
 nav{
