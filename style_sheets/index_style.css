@@ -162,6 +162,12 @@ nav .fa{
     padding-left: 60px;
 }
 
+@media(max-width: 700px){
+    .row{
+        flex-direction: column;
+    }
+}
+
 /*-----course------*/
 
 .featured{
