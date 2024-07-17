@@ -78,32 +78,28 @@
             opacity: 0.8;
         }
         .art-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .art-row {
+            display: flex;
             gap: 2rem;
         }
         .art-item {
+            flex: 1;
             display: flex;
             flex-direction: column;
-            cursor: pointer;
-        }
-        .art-item .img-container {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
         }
         .art-item img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
         }
         .art-item .art-title {
             font-size: 0.9rem;
             text-align: left;
             padding: 0.5rem 0;
-            margin-top: 0.5rem;
         }
         .overlay {
             display: none;
@@ -130,12 +126,17 @@
             color: white;
             cursor: pointer;
         }
+        @media (max-width: 600px) {
+            .art-row {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1><a href="bendemonium.github.io">ben</a></h1>
+            <h1><a href="index.html">ben</a></h1>
             <img src="assets/imgs/schiele_cat.png" alt="schiele cat" class="top-right-image">
         </header>
         <nav>
@@ -146,19 +147,7 @@
             <a href="art.html">art</a>
         </nav>
         <div class="art-grid">
-            <div class="art-item">
-                <div class="img-container">
-                    <img src="assets/imgs/hurt.jpg" alt="Artwork 1">
-                </div>
-                <div class="art-title"><b>hurt</b>, 2020, watercolor</div>
-            </div>
-            <div class="art-item">
-                <div class="img-container">
-                    <img src="assets/imgs/ent2.jpg" alt="Artwork 2">
-                </div>
-                <div class="art-title"><b>ent2</b>, 2020, watercolor</div>
-            </div>
-            <!-- Add more art items here as needed -->
+            <!-- Rows will be dynamically created here -->
         </div>
     </div>
 
@@ -168,6 +157,59 @@
     </div>
 
     <script>
+        const artworks = [
+            { src: "assets/imgs/hurt.jpg", title: "<b>hurt</b>, 2020, watercolor" },
+            { src: "assets/imgs/ent2.jpg", title: "<b>ent2</b>, 2020, watercolor" },
+            // Add more artworks here
+        ];
+
+        function createArtGrid() {
+            const grid = document.querySelector('.art-grid');
+            grid.innerHTML = ''; // Clear existing content
+            let currentRow;
+
+            artworks.forEach((artwork, index) => {
+                if (index % 2 === 0) {
+                    currentRow = document.createElement('div');
+                    currentRow.className = 'art-row';
+                    grid.appendChild(currentRow);
+                }
+
+                const artItem = document.createElement('div');
+                artItem.className = 'art-item';
+                artItem.innerHTML = `
+                    <img src="${artwork.src}" alt="Artwork ${index + 1}">
+                    <div class="art-title">${artwork.title}</div>
+                `;
+                currentRow.appendChild(artItem);
+            });
+
+            adjustRowHeights();
+        }
+
+        function adjustRowHeights() {
+            const rows = document.querySelectorAll('.art-row');
+            rows.forEach(row => {
+                const images = row.querySelectorAll('img');
+                let maxHeight = 0;
+                let totalWidth = 0;
+
+                images.forEach(img => {
+                    const aspectRatio = img.naturalWidth / img.naturalHeight;
+                    totalWidth += aspectRatio;
+                });
+
+                const rowWidth = row.offsetWidth - (images.length - 1) * 32; // Subtracting gap
+                maxHeight = rowWidth / totalWidth;
+
+                images.forEach(img => {
+                    const aspectRatio = img.naturalWidth / img.naturalHeight;
+                    img.style.width = `${maxHeight * aspectRatio}px`;
+                    img.style.height = `${maxHeight}px`;
+                });
+            });
+        }
+
         function openOverlay(imageSrc) {
             document.getElementById('overlayImage').src = imageSrc;
             document.getElementById('imageOverlay').style.display = 'flex';
@@ -179,39 +221,23 @@
             document.body.style.overflow = 'auto';
         }
 
-        document.querySelectorAll('.art-item img').forEach(img => {
-            img.addEventListener('click', function() {
-                openOverlay(this.src);
+        document.addEventListener('DOMContentLoaded', () => {
+            createArtGrid();
+
+            document.querySelectorAll('.art-item img').forEach(img => {
+                img.addEventListener('click', function() {
+                    openOverlay(this.src);
+                });
+            });
+
+            document.getElementById('imageOverlay').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeOverlay();
+                }
             });
         });
 
-        document.getElementById('imageOverlay').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeOverlay();
-            }
-        });
-
-        function setEqualRowHeight() {
-            const grid = document.querySelector('.art-grid');
-            const items = grid.querySelectorAll('.art-item');
-            const numCols = window.getComputedStyle(grid).gridTemplateColumns.split(' ').length;
-
-            for (let i = 0; i < items.length; i += numCols) {
-                const rowItems = Array.from(items).slice(i, i + numCols);
-                const maxHeight = Math.max(...rowItems.map(item => {
-                    const img = item.querySelector('img');
-                    return img.naturalHeight;
-                }));
-
-                rowItems.forEach(item => {
-                    const imgContainer = item.querySelector('.img-container');
-                    imgContainer.style.height = `${maxHeight}px`;
-                });
-            }
-        }
-
-        window.addEventListener('load', setEqualRowHeight);
-        window.addEventListener('resize', setEqualRowHeight);
+        window.addEventListener('resize', adjustRowHeights);
     </script>
 </body>
 </html>
