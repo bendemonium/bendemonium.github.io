@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ben's den - art</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&display=swap');
+        :root {
+            --warm-dull-red: #a85751;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        nav {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+            border-top: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 1rem 0;
+        }
+        nav a {
+            color: #2c3e50;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background-color: var(--warm-dull-red);
+            bottom: 50%;
+            left: 0;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        nav a:hover::after {
+            transform: scaleX(1);
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        h1 a {
+            color: #2c3e50;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        h1 a:hover {
+            color: var(--warm-dull-red);
+        }
+        .top-right-image {
+            width: 100px;
+            height: auto;
+            opacity: 0.8;
+        }
+        .art-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-auto-rows: 220px;
+            grid-auto-flow: dense;
+            gap: 20px;
+        }
+        .art-item {
+            position: relative;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+        .art-item img {
+            width: 100%;
+            height: calc(100% - 20px);
+            object-fit: cover;
+        }
+        .art-item .art-title {
+            font-size: 0.8rem;
+            text-align: center;
+            padding: 5px;
+            background-color: #f0f0f0;
+        }
+        .art-item.wide {
+            grid-column: span 2;
+        }
+        .art-item.tall {
+            grid-row: span 2;
+        }
+        .art-item.large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .overlay img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><a href="index.html">ben</a></h1>
+            <img src="assets/imgs/schiele_cat.png" alt="schiele cat" class="top-right-image">
+        </header>
+        <nav>
+            <a href="about.html">about</a>
+            <a href="writing.html">writing</a>
+            <a href="things-im-up-to.html">things I'm up to</a>
+            <a href="things-i-was-up-to.html">things I <i>was</i> up to</a>
+            <a href="art.html">art</a>
+        </nav>
+        <div class="art-grid">
+            <div class="art-item">
+                <img src="/api/placeholder/400/400" alt="Artwork 1">
+                <div class="art-title">Untitled No. 1</div>
+            </div>
+            <div class="art-item wide">
+                <img src="/api/placeholder/800/400" alt="Artwork 2">
+                <div class="art-title">Horizon Dreams</div>
+            </div>
+            <div class="art-item tall">
+                <img src="/api/placeholder/400/800" alt="Artwork 3">
+                <div class="art-title">Vertical Visions</div>
+            </div>
+            <div class="art-item">
+                <img src="/api/placeholder/400/400" alt="Artwork 4">
+                <div class="art-title">Squared Emotions</div>
+            </div>
+            <div class="art-item large">
+                <img src="/api/placeholder/800/800" alt="Artwork 5">
+                <div class="art-title">Expansive Thoughts</div>
+            </div>
+            <div class="art-item">
+                <img src="/api/placeholder/400/400" alt="Artwork 6">
+                <div class="art-title">Compact Beauty</div>
+            </div>
+            <div class="art-item wide tall">
+                <img src="/api/placeholder/800/800" alt="Artwork 7">
+                <div class="art-title">Grand Scale</div>
+            </div>
+            <div class="art-item">
+                <img src="/api/placeholder/400/400" alt="Artwork 8">
+                <div class="art-title">Miniature Worlds</div>
+            </div>
+            <div class="art-item tall">
+                <img src="/api/placeholder/400/800" alt="Artwork 9">
+                <div class="art-title">Rising Aspirations</div>
+            </div>
+            <div class="art-item wide">
+                <img src="/api/placeholder/800/400" alt="Artwork 10">
+                <div class="art-title">Panoramic Vistas</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="imageOverlay">
+        <span class="close-button" onclick="closeOverlay()">&times;</span>
+        <img id="overlayImage" src="" alt="Enlarged artwork">
+    </div>
+
+    <script>
+        function openOverlay(imageSrc) {
+            document.getElementById('overlayImage').src = imageSrc;
+            document.getElementById('imageOverlay').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeOverlay() {
+            document.getElementById('imageOverlay').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        document.querySelectorAll('.art-item img').forEach(img => {
+            img.addEventListener('click', function() {
+                openOverlay(this.src);
+            });
+        });
+
+        document.getElementById('imageOverlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeOverlay();
+            }
+        });
+    </script>
+</body>
+</html>
