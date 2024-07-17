@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ben</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&display=swap');
+        
+        :root {
+            --warm-dull-red: #a85751;
+        }
+        
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+        }
+        header {
+            text-align: center;
+            font-weight: bolder;
+            padding: 2rem 0;
+        }
+        nav {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            border-top: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 1rem 0;
+        }
+        nav a {
+            color: #2c3e50;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background-color: var(--warm-dull-red);
+            bottom: 50%;
+            left: 0;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        nav a:hover::after {
+            transform: scaleX(1);
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        h1 a {
+            color: #2c3e50;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        h1 a:hover {
+            color: var(--warm-dull-red);
+        }
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        .top-right-image {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 185px;
+            height: auto;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="assets/imgs/schiele_cat.png" alt="schiele cat" class="top-right-image">
+        <header>
+            <h1><a href="ben.html">ben</a></h1>
+        </header>
+
+        <nav>
+            <a href="about.html">about</a>
+            <a href="writing.html">writing</a>
+            <a href="things-im-up-to.html">things I'm up to</a>
+            <a href="things-i-was-up-to.html">things I <i>was</i> up to</a>
+            <a href="art.html">art</a>
+        </nav>
+
+        <p>welcome to my digital space.</p>
+    </div>
+</body>
+</html>
