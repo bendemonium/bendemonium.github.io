@@ -78,28 +78,40 @@
             opacity: 0.8;
         }
         .art-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 5rem;
         }
-        .art-row {
-            display: flex;
-            gap: 2rem;
+        .art-grid-container {
+        max-width: 100%;
+        overflow-x: show;
         }
         .art-item {
-            flex: 1;
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
         }
         .art-item img {
-            width: 200px;
-            height: auto;
-            object-fit: cover;
+            width: 210px;
+            height: 210px;
+            object-fit: contain;
+            cursor: pointer;
+            background-color: transparent;
         }
         .art-item .art-title {
             font-size: 0.9rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .art-item .art-title span {
+            display: block;
             text-align: left;
-            padding: 0.5rem 0;
+            line-height: 1.4;
+        }
+        .art-item .art-title span:first-child {
+            font-weight: bold;
         }
         .overlay {
             display: none;
@@ -126,9 +138,16 @@
             color: white;
             cursor: pointer;
         }
-        @media (max-width: 600px) {
-            .art-row {
+        @media (max-width: 600) {
+            .art-item {
                 flex-direction: column;
+            }
+            .art-item img {
+                width: 100%;
+                height: auto;
+            }
+            .art-item .art-title {
+                text-align: center;
             }
         }
     </style>
@@ -146,8 +165,10 @@
             <a href="things-i-was-up-to.html">things I <i>was</i> up to</a>
             <a href="art.html">art</a>
         </nav> 
-        <div class="art-grid">
-            <!-- Rows will be dynamically created here -->
+        <div class="art-grid-container">
+            <div class="art-grid">
+                <!-- Art items will be dynamically created here -->
+            </div>
         </div>
     </div>
 
@@ -158,56 +179,30 @@
 
     <script>
         const artworks = [
-            { src: "assets/imgs/hurt.jpg", title: "<b>Scraped Knee</b>, 2020, watercolor" },
-            { src: "assets/imgs/ent2.jpg", title: "<b>Ent2</b>, 2020, watercolor" },
-            { src: "assets/imgs/gank.png", title: "<b>GANK</b>, 2024, ceramic" },
+            { src: "assets/imgs/hurt.jpg", title: "Scraped Knee", year: "2020", medium: "watercolor" },
+            { src: "assets/imgs/ent2.jpg", title: "Ent2", year: "2020", medium: "watercolor" },
+            { src: "assets/imgs/unfinished_oranges1.jpg", title: "Unfinished Oranges 1", year: "2021", medium: "oil on canvas" },
+            { src: "assets/imgs/unfinished_oranges2.png", title: "Unfinished Oranges 2", year: "2021", medium: "oil on canvas" },
+            { src: "assets/imgs/gank.png", title: "GANK", year: "2024", medium: "ceramic" },
             // Add more artworks here
         ];
 
         function createArtGrid() {
             const grid = document.querySelector('.art-grid');
             grid.innerHTML = ''; // Clear existing content
-            let currentRow;
 
             artworks.forEach((artwork, index) => {
-                if (index % 2 === 0) {
-                    currentRow = document.createElement('div');
-                    currentRow.className = 'art-row';
-                    grid.appendChild(currentRow);
-                }
-
                 const artItem = document.createElement('div');
                 artItem.className = 'art-item';
                 artItem.innerHTML = `
-                    <img src="${artwork.src}" alt="Artwork ${index + 1}">
-                    <div class="art-title">${artwork.title}</div>
+                    <img src="${artwork.src}" alt="Artwork ${index + 1}" onclick="openOverlay('${artwork.src}')">
+                    <div class="art-title">
+                        <span>${artwork.title}</span>
+                        <span>${artwork.year}</span>
+                        <span>${artwork.medium}</span>
+                    </div>
                 `;
-                currentRow.appendChild(artItem);
-            });
-
-            adjustRowHeights();
-        }
-
-        function adjustRowHeights() {
-            const rows = document.querySelectorAll('.art-row');
-            rows.forEach(row => {
-                const images = row.querySelectorAll('img');
-                let maxHeight = 0;
-                let totalWidth = 0;
-
-                images.forEach(img => {
-                    const aspectRatio = img.naturalWidth / img.naturalHeight;
-                    totalWidth += aspectRatio;
-                });
-
-                const rowWidth = row.offsetWidth - (images.length - 1) * 32; // Subtracting gap
-                maxHeight = rowWidth / totalWidth;
-
-                images.forEach(img => {
-                    const aspectRatio = img.naturalWidth / img.naturalHeight;
-                    img.style.width = `${maxHeight * aspectRatio}px`;
-                    img.style.height = `${maxHeight}px`;
-                });
+                grid.appendChild(artItem);
             });
         }
 
@@ -225,20 +220,12 @@
         document.addEventListener('DOMContentLoaded', () => {
             createArtGrid();
 
-            document.querySelectorAll('.art-item img').forEach(img => {
-                img.addEventListener('click', function() {
-                    openOverlay(this.src);
-                });
-            });
-
             document.getElementById('imageOverlay').addEventListener('click', function(e) {
                 if (e.target === this) {
                     closeOverlay();
                 }
             });
         });
-
-        window.addEventListener('resize', adjustRowHeights);
     </script>
 </body>
 </html>
