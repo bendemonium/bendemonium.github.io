@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ben's art</title>
-    <link rel="icon" type="image/png" href="assets/imgs/rbfav.png">
+    <title>ben's den - Writing</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&display=swap');
         :root {
@@ -157,7 +156,22 @@
     <div class="container">
         <header>
             <h1><a href="index.html">ben</a></h1>
-            <img src="assets/imgs/rbfav.png" alt="schiele cat" class="top-right-image">
+            <img src="assets/imgs/schiele_cat.png" alt="schiele cat" class="top-right-image">
+        </header>
+        <nav>
+            <a href="about.html">about</a>
+            <a href="writing.html">writing</a>
+            <a href="things-im-up-to.html">things I'm up to</a>
+            <a href="things-i-was-up-to.html">things I <em>was</em> up to</a>
+            <a href="art.html">art</a>
+        </nav>
+        <main>
+            
+<body>
+    <div class="container">
+        <header>
+            <h1><a href="index.html">ben</a></h1>
+            <img src="assets/imgs/schiele_cat.png" alt="schiele woman cat" class="top-right-image">
         </header>
         <nav>
             <a href="about.html">about</a>
@@ -165,70 +179,45 @@
             <a href="things-im-up-to.html">things I'm up to</a>
             <a href="things-i-was-up-to.html">things I <i>was</i> up to</a>
             <a href="art.html">art</a>
-        </nav> 
-        <div class="art-grid-container">
-            <div class="art-grid">
-                <!-- Art items will be dynamically created here -->
-            </div>
-        </div>
+        </nav>
+        <h2>Writing</h2>
+        <h3>Publications</h3>
+        <ul>
+            <li>
+                <strong>Title of Publication 1</strong> (Year)
+                <p>Brief description or abstract of the publication.</p>
+            </li>
+            <li>
+                <strong>Title of Publication 2</strong> (Year)
+                <p>Brief description or abstract of the publication.</p>
+            </li>
+        </ul>
+        <h3>Blog</h3>
+        <ul>
+            <li>
+                <strong><a href="blog-post-1.html">Title of Blog Post 1</a></strong> (Date)
+                <p>Short excerpt or description of the blog post.</p>
+            </li>
+            <li>
+                <strong><a href="blog-post-2.html">Title of Blog Post 2</a></strong> (Date)
+                <p>Short excerpt or description of the blog post.</p>
+            </li>
+        </ul>
     </div>
+</body>
 
-    <div class="overlay" id="imageOverlay">
-        <span class="close-button" onclick="closeOverlay()">&times;</span>
-        <img id="overlayImage" src="" alt="Enlarged artwork">
+        </main>
     </div>
-
     <script>
-        const artworks = [
-            
-            { src: "assets/imgs/gank.png", title: "GANK", year: "2024", medium: "ceramic" },
-            { src: "assets/imgs/unfinished_oranges2.png", title: "Unfinished Oranges 2", year: "2021", medium: "oil on canvas" },
-            { src: "assets/imgs/unfinished_oranges1.JPG", title: "Unfinished Oranges 1", year: "2021", medium: "oil on canvas" },
-            { src: "assets/imgs/ent2.jpg", title: "Ent2", year: "2020", medium: "watercolor" },
-            { src: "assets/imgs/hurt.jpg", title: "Scraped Knee", year: "2020", medium: "watercolor" },
-           
-            // Add more artworks here
-        ];
+        // Any common JavaScript can be added here
+    </script>
+</body>
+</html>
 
-        function createArtGrid() {
-            const grid = document.querySelector('.art-grid');
-            grid.innerHTML = ''; // Clear existing content
-
-            artworks.forEach((artwork, index) => {
-                const artItem = document.createElement('div');
-                artItem.className = 'art-item';
-                artItem.innerHTML = `
-                    <img src="${artwork.src}" alt="Artwork ${index + 1}" onclick="openOverlay('${artwork.src}')">
-                    <div class="art-title">
-                        <span>${artwork.title}</span>
-                        <span>${artwork.year}</span>
-                        <span>${artwork.medium}</span>
-                    </div>
-                `;
-                grid.appendChild(artItem);
-            });
-        }
-
-        function openOverlay(imageSrc) {
-            document.getElementById('overlayImage').src = imageSrc;
-            document.getElementById('imageOverlay').style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeOverlay() {
-            document.getElementById('imageOverlay').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            createArtGrid();
-
-            document.getElementById('imageOverlay').addEventListener('click', function(e) {
-                if (e.target === this) {
-                    closeOverlay();
-                }
-            });
-        });
+        </main>
+    </div>
+    <script>
+        // Any common JavaScript can be added here
     </script>
 </body>
 </html>
