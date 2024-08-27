@@ -141,10 +141,18 @@
             Hello! I'm Ben, a data science graduate based in DC. 
             I like <b>linguistics, data science, and art</b>.
         </p>
-        <p>
-            I have a <b>bachelor's degree in electronics and instrumentation engineering</b> with a <b>minor in robotics and automation</b>, 
-            and a <b>master's degree in data science</b>.
-        </p>
+        <div class="education-box">
+            <h2>(am) (have)</h2>
+            <ul>
+                <li>work on ML and NLP projects, esp crosslingual ones</li>
+                <li>looking to research on the same but lack computational resources</li>
+                <li>love languages, scripts, and the intersection of tech and humanity</li>
+                <li>sometimes edit wikipedia</li>
+                <li>master's degree in data science; 
+                    bachelor's degree in electronics and instrumentation engineering,
+                    minor in robotics and automation
+                </li>
+        </div>
     </section>
     
     <div class="content-wrapper">
@@ -248,5 +256,30 @@
     .spotify-embeds iframe {
         width: 30%;
         min-width: 250px; 
+    }
+</style>
+
+<style>
+    .education-box {
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        padding: 15px;
+        margin-top: 15px;
+        background-color: #f9f9f9;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .education-box ul {
+        margin: 10px 0 0 0;
+        padding-left: 20px;
+        list-style-type: '> '; /* Changed to kannada */
+    }
+
+    .education-box li {
+        margin-bottom: 5px;
+    }
+
+    .education-box li:last-child {
+        margin-bottom: 0;
     }
 </style>

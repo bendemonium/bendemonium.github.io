@@ -16,7 +16,7 @@
             font-family: 'Lora', serif;
             font-weight: 300;
             font-size: 14px;
-            line-height: 1.3;
+            line-height: 1.5; /* Increased from 1.3 to 1.5 */
             color: #333;
             max-width: 800px;
             margin: 0 auto;
@@ -35,11 +35,12 @@
             margin-bottom: 12px; /* Reduced from 15px to 12px */
         }
         h2 {
-            font-size: 16px;
+            font-size: 18px; /* Increased from 16px to 18px */
             color: #2c3e50;
             text-transform: lowercase;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-top: 24px; /* Added margin-top */
+            margin-bottom: 12px; /* Increased from 8px to 12px */
         }
         .top-nav {
             margin: 12px 0; /* Reduced from 15px to 12px */
@@ -67,6 +68,13 @@
         }
         .content {
             margin-bottom: 50px;
+        }
+        .content ul, .content ol {
+            margin-bottom: 20px; /* Added margin to list elements */
+            padding-left: 25px; /* Increased left padding for lists */
+        }
+        .content li {
+            margin-bottom: 8px; /* Added space between list items */
         }
         footer {
             margin-top: 50px;
@@ -117,6 +125,28 @@
             color: var(--highlight-color);
             font-weight: 700;
         }
+
+        .experience-box {
+            background-color: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .experience-box h2 {
+            margin-top: 0;
+            color: var(--highlight-color);
+        }
+
+        .experience-box ul {
+            margin-bottom: 10px;
+        }
+
+        .experience-box small {
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
@@ -138,8 +168,6 @@
             <!-- Profile items will be dynamically inserted here -->
         </div>
         
-        
-        
         <h2>research/project inclinations</h2>
         <ol>
             <li><b>Natural Language Processing:</b> testing, benchmarking, finetuning (including LoRA) </li>
@@ -156,24 +184,32 @@
             <li><b>languages (programming):</b> Python, R, SQL, C, C++, Bash, LaTeX</li>
         </ul>
 
-        <h2>experience</h2>
-        <ul>
-            <li>Data Scientist @ Indeed (Summer 2024)</li>
-            <li>Math/Statistics Tutor (Spring 2024)</li>
-            <li>Undergraduate Teaching Assistant for Computer Architecture (Spring 2023)</li>
-            <li>Undergraduate Research Assistant @ Prof Amartya Sanyal's bioinformatics lab (Spring 2023</li>
-            <li>Undergraduate Research Assistant @ Prof Abhishek Sarkar's robotics lab (Spring 2023)</li>
-            <li>Machine Learning Intern @ Dell EMC (Fall 2022)</li>
-            <li>Machine Learning Intern @ Edutech Learning Solutions (Summer 2021)</li>
-        </ul>
-        <p><small>(see exp/proj for details)</small></p>
+        <div class="experience-box">
+            <h2>experience</h2>
+            <ul>
+                <li>Data Scientist @ Indeed (Summer 2024)
+                    working on 4M job listings to model sponsorship profitability
+                </li>
+                <li>College-level Math/Statistics Tutor (Spring 2024)</li>
+                <li>Undergraduate Teaching Assistant for Computer Architecture (Spring 2023)</li>
+                <li>Undergraduate Research Assistant @ Prof Amartya Sanyal's bioinformatics lab (Spring 2023)</li>
+                <li>Machine Learning Intern @ Dell EMC (Fall 2022)
+                    reducing device health monitoring error rate
+                </li>
+                <li>Undergraduate Research Assistant @ Prof Abhishek Sarkar's robotics lab (Spring 2022)
+                    developing EKF-based SLAM for underwater bionic robots
+                </li>
+                <li>Machine Learning Intern @ Edutech Learning Solutions (Summer 2021)</li>
+            </ul>
+            <small>(see exp/proj for details)</small>
+        </div>
 
         <h2>on the web</h2>
         <p class="contact-info">
             GitHub: <span class="username">bendemonium</span><br>
-            X: <span class="username">bensorcier</span><br>
+            X: <span class="username">@bensorcier</span><br>
             Wikipedia: <span class="username">Bendemonium</span><br>
-            Discord: <span class="username">bendemonium</span><br>
+            Discord: <span class="username">@bendemonium</span><br>
             email: <span class="username">ridhi.bandaru@outlook.com</span>
         </p>
         
