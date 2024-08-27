@@ -1,1 +1,0 @@
-# ridhibandaru.github.io
