@@ -67,7 +67,30 @@
             margin-bottom: 50px;
         }
         .content {
-            margin-bottom: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .main-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        .experience-box {
+            flex: 0 0 250px;
+            order: -1;
+            align-self: flex-start;
+            position: sticky;
+            top: 20px;
+        }
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+            .experience-box {
+                flex: 1 1 auto;
+                order: 0;
+                position: static;
+            }
         }
         .content ul, .content ol {
             margin-bottom: 20px; /* Added margin to list elements */
@@ -164,25 +187,36 @@
     </header>
     
     <main class="content">
-        <div id="profile-container" class="profile-container">
-            <!-- Profile items will be dynamically inserted here -->
-        </div>
-        
-        <h2>research/project inclinations</h2>
-        <ol>
-            <li><b>Natural Language Processing:</b> testing, benchmarking, finetuning (including LoRA) </li>
-            <li><b>(Computational) Linguistics:</b> morphological and phonological analyses, multilingual corpora </li>
-            <li><b>Multimodal Models:</b> mostly the language part in the model</li>
-            <li><b>Robotics:</b> (more a thing of the past) autonomous systems responding to multilingual inputs</li>
-        </ol>
+        <div class="main-content">
+            <div id="profile-container" class="profile-container">
+                <!-- Profile items will be dynamically inserted here -->
+            </div>
+            
+            <h2>research/project inclinations</h2>
+            <ol>
+                <li><b>Natural Language Processing:</b> testing, benchmarking, finetuning (including LoRA) </li>
+                <li><b>(Computational) Linguistics:</b> morphological and phonological analyses, multilingual corpora </li>
+                <li><b>Multimodal Models:</b> mostly the language part in the model</li>
+                <li><b>Robotics:</b> (more a thing of the past) autonomous systems responding to multilingual inputs</li>
+            </ol>
 
-        <h2>stack</h2>
-        <ul>
-            <li><b>languages (fluent, human):</b> English, Telugu, Hindi-Urdu</li>
-            <li><b>languages (functional, human):</b> French, Latin</li>
-            <li><b>scripts:</b> Latin, देवनागरी, తెలుగు, 𑀩𑁆𑀭𑀸𑀳𑁆𑀫𑀻, فارسی </li>
-            <li><b>languages (programming):</b> Python, R, SQL, C, C++, Bash, LaTeX</li>
-        </ul>
+            <h2>stack</h2>
+            <ul>
+                <li><b>languages (fluent, human):</b> English, Telugu, Hindi-Urdu</li>
+                <li><b>languages (functional, human):</b> French, Latin</li>
+                <li><b>scripts:</b> Latin, देवनागरी, తెలుగు, 𑀩𑁆𑀭𑀸𑀳𑁆𑀫𑀻, فارسی </li>
+                <li><b>languages (programming):</b> Python, R, SQL, C, C++, Bash, MATLAB, LaTeX</li>
+            </ul>
+
+            <h2>on the web</h2>
+            <p class="contact-info">
+                GitHub: <span class="username">bendemonium</span><br>
+                X: <span class="username">@bensorcier</span><br>
+                Wikipedia: <span class="username">Bendemonium</span><br>
+                Discord: <span class="username">@bendemonium</span><br>
+                email: <span class="username">ridhi.bandaru@outlook.com</span>
+            </p>
+        </div>
 
         <div class="experience-box">
             <h2>experience</h2>
@@ -191,6 +225,7 @@
                     working on 4M job listings to model sponsorship profitability
                 </li>
                 <li>College-level Math/Statistics Tutor (Spring 2024)</li>
+                <li>Graduate Researcher @ Fabris Group (Fall 2023, discontinued midway)</li>
                 <li>Undergraduate Teaching Assistant for Computer Architecture (Spring 2023)</li>
                 <li>Undergraduate Research Assistant @ Prof Amartya Sanyal's bioinformatics lab (Spring 2023)</li>
                 <li>Machine Learning Intern @ Dell EMC (Fall 2022)
@@ -201,18 +236,8 @@
                 </li>
                 <li>Machine Learning Intern @ Edutech Learning Solutions (Summer 2021)</li>
             </ul>
-            <small>(see exp/proj for details)</small>
+            <small>(<a href="exp.html" style="color: inherit; text-decoration: none;">see exp/proj for details</a>)</small>
         </div>
-
-        <h2>on the web</h2>
-        <p class="contact-info">
-            GitHub: <span class="username">bendemonium</span><br>
-            X: <span class="username">@bensorcier</span><br>
-            Wikipedia: <span class="username">Bendemonium</span><br>
-            Discord: <span class="username">@bendemonium</span><br>
-            email: <span class="username">ridhi.bandaru@outlook.com</span>
-        </p>
-        
     </main>
     
     <footer>
