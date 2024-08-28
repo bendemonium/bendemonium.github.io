@@ -35,11 +35,11 @@
             margin-bottom: 12px; /* Reduced from 15px to 12px */
         }
         h2 {
-            font-size: 16px; // Reduced from 20px
+            font-size: 16px; 
             color: #2c3e50;
             text-transform: lowercase;
-            font-weight: 700; // Kept bold
-            margin-bottom: 8px; // Slightly reduced from 10px
+            font-weight: 700;
+            margin-bottom: 8px; 
         }
         .top-nav {
             margin: 12px 0; /* Reduced from 15px to 12px */
@@ -126,6 +126,10 @@
         .welcome-section {
             margin-bottom: 50px;
         }
+        ul {
+            list-style-type: '> '; 
+        }
+        
     </style>
 </head>
 <body>
@@ -174,17 +178,25 @@
         <main class="main-content">
             <section id="currently" class="section">
                 <h2>currently up to</h2>
-                <p>This section details what I'm currently working on or interested in.</p>
+                <ul>
+                    <li> adding natural language support to dirinit 🌴</li>
+                    <li> put the kunai project on hold (changing its name too,
+                        will use epitran and panphon instead)
+                    </li>
+                    <li> making a d&d character sheet generator</li>
+                    <li> finishing off voynich-tex</li>
+                    <li> serif font generator?</li>
+                </ul>
             </section>
             
             <section id="learning" class="section">
                 <h2>learning/working with</h2>
-                <p>Here's what I'm currently learning and exploring:</p>
                 <ul>
-                    <li>Advanced NLP techniques</li>
-                    <li>Crosslingual transfer learning</li>
-                    <li>Ethical AI and bias mitigation</li>
-                    <li>Ancient scripts and writing systems</li>
+                    <li> trying to use sonar by meta in the idiom prism project 
+                        (better for topic modeling)</li>
+                    <li> locking in to for golang </li>
+                    <li> state-space models</li>
+                    <li> thinking about AI-generated CAD files </li>
                 </ul>
             </section>
             
