@@ -68,16 +68,18 @@
         }
         .content {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: row;
             gap: 20px;
+            justify-content: space-between;
         }
         .main-content {
             flex: 1;
-            min-width: 300px;
+            max-width: calc(100% - 270px); /* Adjust based on experience box width */
+            order: 1; /* Ensure main content comes first */
         }
         .experience-box {
             flex: 0 0 250px;
-            order: -1;
+            order: 2; /* Ensure experience box comes second */
             align-self: flex-start;
             position: sticky;
             top: 20px;
@@ -86,10 +88,14 @@
             .content {
                 flex-direction: column;
             }
+            .main-content {
+                max-width: 100%;
+                order: 2; /* On mobile, main content comes second */
+            }
             .experience-box {
                 flex: 1 1 auto;
-                order: 0;
                 position: static;
+                order: 1; /* On mobile, experience box comes first */
             }
         }
         ul {
@@ -198,6 +204,23 @@
         [data-theme="dark"] h2 {
             color: #4b7488;
         }
+
+        .divider {
+            border-top: 1px solid #e0e0e0;
+            margin: 40px 0;
+        }
+
+        .extra-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .extra-content h2 {
+            color: var(--highlight-color);
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
@@ -216,6 +239,26 @@
     </header>
     
     <main class="content">
+        <div class="experience-box">
+            <h2>experience</h2>
+            <ul>
+                <li>Data Scientist @ Indeed (Summer 2024)
+                    working on 4M job listings to model sponsorship profitability
+                </li>
+                <li>College-level Math/Statistics Tutor (Spring 2024)</li>
+                <li>Graduate Researcher @ Fabris Group (Fall 2023, discontinued midway)</li>
+                <li>Undergraduate Teaching Assistant for Computer Architecture (Spring 2023)</li>
+                <li>Undergraduate Research Assistant @ Prof Amartya Sanyal's bioinformatics lab (Spring 2023)</li>
+                <li>Machine Learning Intern @ Dell EMC (Fall 2022)
+                    reducing device health monitoring error rate
+                </li>
+                <li>Undergraduate Research Assistant @ Prof Abhishek Sarkar's robotics lab (Spring 2022)
+                    developing EKF-based SLAM for underwater bionic robots
+                </li>
+                <li>Machine Learning Intern @ Edutech Learning Solutions (Summer 2021)</li>
+            </ul>
+            <small>(<a href="exp.html" style="color: inherit; text-decoration: none;">see exp/proj for details</a>)</small>
+        </div>
         <div class="main-content">
             <div id="profile-container" class="profile-container">
                 <!-- Profile items will be dynamically inserted here -->
@@ -242,35 +285,21 @@
                 GitHub: <span class="username">bendemonium</span><br>
                 X: <span class="username">@bensorcier</span><br>
                 Wikipedia: <span class="username">Bendemonium</span><br>
-                Beli: <span class="username">@betbenatetoday</span>
+                beli: <span class="username">@betbenatetoday</span><br>
                 Discord: <span class="username">@bendemonium</span><br>
                 email: <span class="username">ridhi.bandaru@outlook.com</span>
                 
             </p>
         </div>
-
-        <div class="experience-box">
-            <h2>experience</h2>
-            <ul>
-                <li>Data Scientist @ Indeed (Summer 2024)
-                    working on 4M job listings to model sponsorship profitability
-                </li>
-                <li>College-level Math/Statistics Tutor (Spring 2024)</li>
-                <li>Graduate Researcher @ Fabris Group (Fall 2023, discontinued midway)</li>
-                <li>Undergraduate Teaching Assistant for Computer Architecture (Spring 2023)</li>
-                <li>Undergraduate Research Assistant @ Prof Amartya Sanyal's bioinformatics lab (Spring 2023)</li>
-                <li>Machine Learning Intern @ Dell EMC (Fall 2022)
-                    reducing device health monitoring error rate
-                </li>
-                <li>Undergraduate Research Assistant @ Prof Abhishek Sarkar's robotics lab (Spring 2022)
-                    developing EKF-based SLAM for underwater bionic robots
-                </li>
-                <li>Machine Learning Intern @ Edutech Learning Solutions (Summer 2021)</li>
-            </ul>
-            <small>(<a href="exp.html" style="color: inherit; text-decoration: none;">see exp/proj for details</a>)</small>
-        </div>
     </main>
-    
+
+    <div class="divider"></div>
+
+    <!-- <section class="extra-content">
+        <h2>stuff that doesn't matter</h2>
+        <!-- Add your content here -->
+    </section> -->
+
     <footer>
         <p>© 2024 Ridhi Bandaru</p>
     </footer>
