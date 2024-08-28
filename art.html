@@ -165,10 +165,13 @@
         [data-theme="dark"] {
             --highlight-color: #da7871;
         }
-        [data-theme="dark"] {
+        [data-theme="dark"] body {
             filter: invert(1) hue-rotate(180deg);
+            background-color: #030303; /* Inverted from #fcfcfc */
         }
-        [data-theme="dark"] img,
+        [data-theme="dark"] img {
+            filter: invert(1) hue-rotate(180deg); /* Revert the inversion for images */
+        }
         [data-theme="dark"] h2 {
             color: #4b7488;
         }
