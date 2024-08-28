@@ -138,6 +138,7 @@
             <a href="currently.html">up to _</a>
             <a href="writing.html">writing</a>
             <a href="art.html">art</a>
+            <button id="darkModeToggle">🌓</button>
         </nav>
         <div class="header-line"></div>
     </header>
@@ -208,16 +209,23 @@
     </footer>
 
     <script>
-        // Remove this entire script block if it still exists
-        /*
-        // Highlight active section in vertical nav
-        const sections = document.querySelectorAll('.section');
-        const navLinks = document.querySelectorAll('.vertical-nav a');
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const html = document.documentElement;
 
-        window.addEventListener('scroll', () => {
-            // ... existing code ...
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', currentTheme);
+
+        darkModeToggle.addEventListener('click', () => {
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }
+            console.log('Dark mode toggled:', html.getAttribute('data-theme') === 'dark');
         });
-        */
     </script>
 </body>
 </html>
@@ -261,5 +269,33 @@
     .spotify-embeds iframe {
         width: 30%;
         min-width: 250px; 
+    }
+</style>
+
+<style>
+    /* Dark mode styles */
+    [data-theme="dark"] {
+            --highlight-color: #da7871;
+        }
+        [data-theme="dark"] {
+            filter: invert(1) hue-rotate(180deg);
+        }
+        [data-theme="dark"] img,
+        [data-theme="dark"] iframe {
+            filter: invert(1) hue-rotate(225deg);
+        }
+        [data-theme="dark"] h2 {
+            color: #4b7488;
+        }
+</style>
+
+<style>
+    /* Dark mode toggle button style */
+    #darkModeToggle {
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        padding: 0 10px;
     }
 </style>
