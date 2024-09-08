@@ -6,6 +6,7 @@
     <title>about ben</title>
     <link rel="icon" href="assets/imgs/rbfav.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@300;400;700&display=swap" rel="stylesheet">
+    <script type = "text/javascript" src="assets/js/scripts.js"></script>
     <style>
         :root {
             --highlight-color: #a85751;
@@ -231,7 +232,7 @@
             <a href="about.html" class="active">about</a>
             <a href="exp.html">exp/proj</a>
             <a href="currently.html">up to _</a>
-            <a href="writing.html">writing</a>
+            <a href="https://bendemonium.github.io/blog">writing</a>
             <a href="art.html">art</a>
             <button id="darkModeToggle">🌓</button>
         </nav>
@@ -304,47 +305,13 @@
     </footer>
 
     <script>
+        window.onload = generateProfileImages;
         // Array of profile images
         const profileImages = [
             { src: "assets/imgs/ben.png", caption: "ben" },
             { src: "assets/imgs/schiele_cat.png", caption: "schiele cat" },
             // Add more profile images here
-        ];
-
-        // Function to generate profile images
-        function generateProfileImages() {
-            const profileContainer = document.getElementById('profile-container');
-            profileImages.forEach(profile => {
-                const profileItem = document.createElement('div');
-                profileItem.className = 'profile-item';
-                profileItem.innerHTML = `
-                    <img src="${profile.src}" alt="${profile.caption}" class="profile-image">
-                    <p class="profile-caption">${profile.caption}</p>
-                `;
-                profileContainer.appendChild(profileItem);
-            });
-        }
-
-        // Generate profile images on page load
-        window.onload = generateProfileImages;
-
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const html = document.documentElement;
-
-        // Check for saved theme preference or default to light mode
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        html.setAttribute('data-theme', currentTheme);
-
-        darkModeToggle.addEventListener('click', () => {
-            if (html.getAttribute('data-theme') === 'dark') {
-                html.setAttribute('data-theme', 'light');
-                localStorage.setItem('theme', 'light');
-            } else {
-                html.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-            }
-            console.log('Dark mode toggled:', html.getAttribute('data-theme') === 'dark');
-        });
+        ];     
     </script>
 </body>
 </html>
