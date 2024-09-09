@@ -5,59 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ben's den</title>
     <link rel="icon" href="assets/imgs/rbfav.png" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <script type = "text/javascript" src="assets/js/scripts.js"></script>
     <style>
-        :root {
-            --highlight-color: #a85751; /* Dull warm red */
-            --nav-color: #8a8585; /* More grey than red */
-            --hover-bg-color: #f5f5dc; /* Beige color for hover highlight */
-        }
-        body {
-            font-family: 'Lora', serif;
-            font-weight: 300;
-            font-size: 14px;
-            line-height: 1.5; /* Updated line spacing */
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fcfcfc;
-            text-align: left;
-        }
-        header, footer {
-            text-align: center;
-        }
-        h1 {
-            font-size: 36px;
-            color: var(--highlight-color);
-            text-transform: lowercase;
-            font-weight: 500;
-            margin-bottom: 12px; /* Reduced from 15px to 12px */
-        }
-        h2 {
-            font-size: 16px; 
-            color: #2c3e50;
-            text-transform: lowercase;
-            font-weight: 700;
-            margin-bottom: 8px; 
-        }
-        .top-nav {
-            margin: 12px 0; /* Reduced from 15px to 12px */
-        }
-        .top-nav a {
-            margin: 0 10px;
-            text-decoration: none;
-            color: #34495e;
-            text-transform: lowercase;
-            padding: 2px 5px; /* Added padding for hover effect */
-        }
-        .top-nav a:hover {
-            background-color: var(--hover-bg-color);
-            color: var(--highlight-color);
-        }
-        .top-nav a.active {
-            color: var(--highlight-color);
-        }
         .content-wrapper {
             display: flex;
             gap: 20px;
@@ -218,25 +168,6 @@
         <p>© 2024 Ridhi Bandaru</p>
     </footer>
 
-    <script>
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const html = document.documentElement;
-
-        // Check for saved theme preference or default to light mode
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        html.setAttribute('data-theme', currentTheme);
-
-        darkModeToggle.addEventListener('click', () => {
-            if (html.getAttribute('data-theme') === 'dark') {
-                html.setAttribute('data-theme', 'light');
-                localStorage.setItem('theme', 'light');
-            } else {
-                html.setAttribute('data-theme', 'dark');
-                localStorage.setItem('theme', 'dark');
-            }
-            console.log('Dark mode toggled:', html.getAttribute('data-theme') === 'dark');
-        });
-    </script>
 </body>
 </html>
 
@@ -282,30 +213,3 @@
     }
 </style>
 
-<style>
-    /* Dark mode styles */
-    [data-theme="dark"] {
-            --highlight-color: #da7871;
-        }
-        [data-theme="dark"] {
-            filter: invert(1) hue-rotate(180deg);
-        }
-        [data-theme="dark"] img,
-        [data-theme="dark"] iframe {
-            filter: invert(1) hue-rotate(225deg);
-        }
-        [data-theme="dark"] h2 {
-            color: #4b7488;
-        }
-</style>
-
-<style>
-    /* Dark mode toggle button style */
-    #darkModeToggle {
-        background: none;
-        border: none;
-        font-size: 20px;
-        cursor: pointer;
-        padding: 0 10px;
-    }
-</style>
