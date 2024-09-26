@@ -40,7 +40,7 @@ h2 {
     margin-bottom: 12px; /* Increased from 8px to 12px */
 }
 .top-nav {
-    margin: 12px 0; /* Reduced from 15px to 12px */
+    margin: 6px 0; /* Reduced from 15px to 12px */
 }
 .top-nav a {
     margin: 0 10px;
@@ -58,7 +58,6 @@ h2 {
 }
 .header-line {
     border-top: 1px solid #e0e0e0; /* Lighter color */
-    margin: 8px 0; /* Reduced from 10px to 8px */
 }
 header {
     margin-bottom: 50px;
