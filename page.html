@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bendemonium</title>
+	<style>
+        
+		:root{
+			--page-gutter: 24px;
+			--rail-width: 18rem;          /* ~288px */
+			--rail-gap: 12px;
+			--content-max: 70ch;          /* comfy reading width */
+			--divider: 1px solid rgba(0,0,0,0.15);
+		}
+
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: 'Calibri Light', Calibri, Arial, sans-serif;
+			font-weight: 300;
+			color: #000;
+			/* removed: display:flex; (we'll use grid on the main layout) */
+			background: #fff;
+		}
+
+		/* Fixed vertical sidebar (unchanged) */
+		.sidebar {
+			width: 60px;
+			min-width: 60px;
+			max-width: 60px;
+			background: none;
+			height: 100vh;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: flex-start;
+			position: fixed;
+			left: 0;
+			top: 0;
+			z-index: 1000;
+			overflow: hidden;
+		}
+		.nav-item {
+			color: #000;
+			margin: 14px 0;
+			writing-mode: vertical-rl;
+			transform: rotate(180deg);
+			text-align: center;
+			cursor: pointer;
+			font-size: 12px;
+			text-decoration: none;
+			letter-spacing: 1px;
+			font-family: 'Calibri Light', Calibri, Arial, sans-serif;
+			font-weight: 400;
+			transition: font-weight 0.5s cubic-bezier(0.4,0,0.2,1), color 0.5s;
+			position: relative;
+			min-height: 60px;
+			max-height: 60px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: flex-start;
+			font-variation-settings: "wght" 300; /* prevent shift on bold */
+		}
+
+		/* Page layout: main + optional rail */
+		.layout{
+			margin-left: 60px;                   /* room for the fixed sidebar */
+			padding: 40px var(--page-gutter) 56px;
+			display: grid;
+			grid-template-columns: minmax(0, 1fr);  /* default: single column */
+			gap: var(--page-gutter);
+			align-items: start;
+		}
+
+		/* Main content column */
+		main.main-content{
+			max-width: min(9.5in, var(--content-max));  /* keep your intended reading width */
+			width: 100%;
+		}
+
+		/* Divider and rail are hidden until the breakpoint */
+		.divider{ display:none; }
+
+		aside.art-rail{
+			display: none;
+		}
+
+        .zoom125 {
+            transform: scale(1.25);
+            transform-origin: top left;
+        }
+
+		/* “10 inches” breakpoint ≈ 960px */
+		@media (min-width: 960px){
+			.layout{
+				/* main + divider + fixed-width rail */
+				grid-template-columns: minmax(0, var(--content-max)) minmax(0, 1fr) var(--rail-width);
+			}
+			main.main-content{
+				max-width: var(--content-max);
+			}
+			.divider{
+				display: block;
+				border-left: var(--divider);
+				height: 100%;
+				opacity: 0.6;
+			}
+			aside.art-rail{
+				display: block;
+				position: sticky;
+				top: 24px;                               /* adjust to clear any headers */
+				max-height: calc(100dvh - 48px);
+				overflow: auto;                          /* rail scrolls independently */
+				padding-left: var(--page-gutter);
+			}
+		}
+
+		/* Rail content layout */
+		.art-grid{
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: var(--rail-gap);
+		}
+		/* On wider screens, increase count (not size) */
+		@media (min-width: 1280px){
+			.art-grid{ grid-template-columns: 1fr 1fr; }
+		}
+
+		.art-tile{
+			border-radius: 8px;
+			overflow: clip;
+			background: #f6f6f6;
+		}
+		.art-tile picture,
+		.art-tile img{
+			display: block;
+			width: 100%;
+			height: auto;
+			aspect-ratio: 4/3;       /* avoid layout shift; tweak per image */
+			object-fit: cover;
+		}
+
+		/* Gentle fade-in for lazy-loaded images */
+		.art-tile img[loading="lazy"]{
+			opacity: 0;
+			transition: opacity 250ms ease;
+		}
+		.art-tile img[loading="lazy"].is-visible{
+			opacity: 1;
+		}
+
+		@media (prefers-reduced-motion: reduce){
+			.art-tile img[loading="lazy"]{ transition: none; opacity: 1; }
+		}
+	</style>
+</head>
+<body class="zoom125">
+	<nav class="sidebar">
+		<a class="nav-item" href="index.html">home</a>
+		<a class="nav-item" href="about.html">about</a>
+		<a class="nav-item" href="research.html">research</a>
+		<a class="nav-item" href="papers.html">papers</a>
+		<a class="nav-item" href="cv.html">cv</a>
+		<a class="nav-item" href="other.html">other stuff</a>
+		<a class="nav-item" href="call.html">call me out</a>
+	</nav>
+
+	<!-- Main grid layout -->
+	<div class="layout">
+		<main class="main-content">
+			<div style="margin-bottom: max(10%, 50px);">
+				<div style="font-size: 2.5em; font-weight: 500; font-family: 'Calibri Light', Helvetica, Arial, sans-serif;">Ridhi Bandaru</div>
+				<div style="font-size: 1.5em; font-weight: 400; font-family: 'Calibri Light', Helvetica, Arial, sans-serif; margin-top: 2px;">/rɪdʱiː bəŋɖaːɾuː/ </div>
+			</div>
+
+			<div class="about-container" style="display: flex; gap: 32px; align-items: flex-start; width: 100%; max-width: 9.5in; padding-left: min(10%, 20px); padding-top: 0;">
+				<div style="width:50%; min-width: 120px; display: flex; flex-direction: column; align-items: left; max-width: 3in;">
+					<img src="assets/ridhi.png" alt="Ridhi Bandaru" style="width: 35%; max-width: 130px; align-self: center; padding-bottom: 15%;" />
+					<ol style="font-family: 'Calibri Light', Calibri, Arial, sans-serif; padding-left: 10%; margin: 0;">
+						<li style="font-size: 0.8em; padding-bottom: 1%;">most people really just say it like /ri:di:/ and that’s okay too!</li>
+						<li style="font-size: 0.8em; padding-bottom: 1%;">or, just /bɛn/ works!</li>
+						<li style="font-size: 1.2em; font-weight: 700; padding-bottom: 1%;">cognition + language + machines</li>
+						<li style="font-size: 0.9em; padding-bottom: 1%;">bachelor’s degree: electronics and instrumentation engineering; minor in robotics and automation <span style="font-size: 0.8em;">(BITS Pilani, Hyderabad Campus)</span></li>
+						<li style="font-size: 0.9em; padding-bottom: 1%;">master’s degree: data science <span style="font-size: 0.8em;">(UConn)</span></li>
+						<li style="font-size: 0.9em; padding-bottom: 1%;">current full-time job: software engineer <span style="font-size: 0.8em;">(Centene Corp)</span></li>
+					</ol>
+				</div>
+				<div style="flex: 1; vertical-align: top; padding-right: min(10%,0.5in);">
+					<ol style="font-size: 1.3em; font-family: 'Calibri Light', Calibri, Arial, sans-serif; font-weight: 0; padding-left: 20%;">
+						<li style="margin-bottom: 10px;">Human vs machine reasoning</li>
+						<li style="margin-bottom: 10px;">Generalization in humans and machines</li>
+						<li style="margin-bottom: 10px;">Modeling human brain/behavior</li>
+						<li style="margin-bottom: 10px;">Inductive biases and compositionality</li>
+						<li style="margin-bottom: 10px;">Neurosymbolic modeling</li>
+					</ol>
+				</div>
+			</div>
+		</main>
+
+		<!-- Divider column (visible only ≥ 960px) -->
+		<div class="divider" aria-hidden="true"></div>
+
+		<!-- Sticky Right Rail -->
+		<aside class="art-rail" aria-label="Art showcase">
+			<div class="art-grid">
+				<!-- Replace src/srcset with your images in assets/art/... -->
+				<figure class="art-tile">
+					<picture>
+						<source type="image/avif" srcset="assets/art/01.avif 1x, assets/art/01@2x.avif 2x">
+						<source type="image/webp" srcset="assets/art/01.webp 1x, assets/art/01@2x.webp 2x">
+						<img src="assets/art/01.jpg" alt="Untitled (oil on canvas), 2024" loading="lazy">
+					</picture>
+				</figure>
+				<figure class="art-tile">
+					<picture>
+						<source type="image/avif" srcset="assets/art/02.avif 1x, assets/art/02@2x.avif 2x">
+						<source type="image/webp" srcset="assets/art/02.webp 1x, assets/art/02@2x.webp 2x">
+						<img src="assets/art/02.jpg" alt="Study in blue, 2023" loading="lazy">
+					</picture>
+				</figure>
+				<figure class="art-tile">
+					<picture>
+						<source type="image/avif" srcset="assets/art/03.avif 1x, assets/art/03@2x.avif 2x">
+						<source type="image/webp" srcset="assets/art/03.webp 1x, assets/art/03@2x.webp 2x">
+						<img src="assets/art/03.jpg" alt="Textured field, 2022" loading="lazy">
+					</picture>
+				</figure>
+				<!-- add more tiles as needed -->
+			</div>
+		</aside>
+	</div>
+
+	<script>
+		// Optional: fade-in lazy images when they enter the rail viewport
+		(function(){
+			if (!('IntersectionObserver' in window)) {
+				document.querySelectorAll('.art-rail img[loading="lazy"]').forEach(img => img.classList.add('is-visible'));
+				return;
+			}
+			const obs = new IntersectionObserver((entries)=>{
+				for (const e of entries){
+					if (e.isIntersecting){
+						e.target.classList.add('is-visible');
+						obs.unobserve(e.target);
+					}
+				}
+			}, {root: document.querySelector('aside.art-rail'), rootMargin: '100px'});
+			document.querySelectorAll('.art-rail img[loading="lazy"]').forEach(img => obs.observe(img));
+		})();
+	</script>
+</body>
+</html>
