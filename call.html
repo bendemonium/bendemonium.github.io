@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="components/navbar.js" defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bendemonium</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: 'Calibri Light', Calibri, Arial, sans-serif;
+			font-weight: 300;
+			display: flex;
+			color: #000;
+		}
+		.main-content {
+			margin-left: 80px;
+			padding: 40px;
+			width: calc(100% - 60px);
+		}
+	</style>
+</head>
+<body>
+	<nav-bar></nav-bar>
+	<div class="main-content">
+		<div style="margin-bottom: 16px;">
+			<div style="font-size: 2.7em; font-weight: 500; font-family: 'Calibri Light', Helvetica, Arial, sans-serif;">Ridhi Bandaru</div>
+			<div style="font-size: 1.6em; font-weight: 400; font-family: 'Calibri Light', Helvetica, Arial, sans-serif; margin-top: 2px;">/rɪdʱiː bəŋɖaːɾuː/ </div>
+			<!-- <div style="font-size: 1em; font-weight: 50; font-family: 'Calibri Light', Calibri, Arial, sans-serif; margin-top: 2px;"><i>ri-dee ban-der-oo</i></div> -->
+		</div>
+        <div class="callout-box" style="max-width: 9.5in ; background:#fdfdfd; color:#000; padding:16px; margin:24px 0; width: 80%;">
+  
+
+  <form id="callout-form" style="font-family:'Calibri Light', Calibri, Arial, sans-serif; font-size:0.95em;">
+    <!-- Message (optional) -->
+    <input id="co-message" name="message" rows="5" placeholder="say whatever you want—critique, feedback, call-out…" 
+      style="width:100%; box-sizing:border-box; padding:10px; border:none; background:#fff; color:#000;">
+
+    <!-- Name (optional) -->
+    <label for="co-name" style="display:block; margin:12px 0 4px;">name/sobriquet</label>
+    <input id="co-name" name="name" type="text" placeholder="humpty dumpty"
+      style="width:100%; box-sizing:border-box; padding:10px; border:none; background:#fff; color:#000;">
+
+    <!-- Email (optional) -->
+    <label for="co-email" style="display:block; margin:12px 0 4px;">email</label>
+    <input id="co-email" name="email" type="email" placeholder="hdumpty@worstfall.ever"
+      style="width:100%; box-sizing:border-box; padding:10px; border:none; background:#fff; color:#000;">
+
+    <!-- Checkboxes (optional) -->
+    <div style="margin:14px 0 10px;">
+      <label style="display:flex; align-items: self-start ; gap:8px; margin:6px 0;">
+        <input type="checkbox" name="wants_conversation" value="yes">
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+            <span>are you looking to have a conversation?</span>
+        <span style="font-size: 12px; color: #494949;"> 
+          (this means I will reply to you so please provide an email@)
+        </span>
+        </div>
+      </label>
+      <label style="display:flex; align-items:self-start; gap:8px; margin:6px 0;">
+        <input type="checkbox" name="wants_education" value="yes">
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+            <span>do you want to educate me?</span>
+        <span style="font-size: 12px; color: #494949;"> 
+          (I'm happy to actively find resources online to educate myself, but if it's something not widely covered or something 
+          that's rather specific/nuanced, I would really appreciate if you find the time! I also understand it's not your job
+          not your job to take it upon yourself, and it can sometimes be exhausting, so do not feel presseured.)</span>
+        </div>
+        
+      </label>
+    </div>
+
+    <button type="submit" style="background:#000000; font-weight:600 ;color:#d7d5d5; cursor:pointer;">
+      send
+    </button>
+  </form>
+
+  <!-- Thank-you message (hidden by default) -->
+  <div id="callout-thanks" style="display:none; margin-top:8px; font-family:'Calibri Light', Calibri, Arial, sans-serif;">
+    <div style="padding:10px 0;">Thank you for your that — I appreciate you taking the time.</div>
+  </div>
+</div>
+        </div>
+        </div>
+	</div>
+</body>
+</html>
+
+<script>
+  // Simple client-side handler: shows a thank-you message and clears the form.
+  // (All fields are optional; no validation required.)
+  document.getElementById('callout-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // If you later add a backend, send data here with fetch(...)
+    // const data = new FormData(this); // then POST as needed
+
+    this.style.display = 'none';
+    document.getElementById('callout-thanks').style.display = 'block';
+  });
+</script>
