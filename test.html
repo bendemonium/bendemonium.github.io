@@ -1,0 +1,27 @@
+<textarea id="feedback"
+  placeholder="Type your message..."
+  style="
+    width:100%;
+    min-height:80px;
+    box-sizing:border-box;
+    padding:10px;
+    font-family:Calibri,Arial,sans-serif;
+    resize:none;
+    overflow:hidden;
+  "
+></textarea>
+
+<script>
+  const ta = document.getElementById('feedback');
+
+  function autoResize(el) {
+    el.style.height = 'auto';          // reset height
+    el.style.height = el.scrollHeight + 'px'; // then fit content
+  }
+
+  // adjust on typing, pasting, or deleting
+  ta.addEventListener('input', () => autoResize(ta));
+
+  // resize once on load (in case it's prefilled)
+  window.addEventListener('load', () => autoResize(ta));
+</script>

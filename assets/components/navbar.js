@@ -28,8 +28,8 @@ class Navbar extends HTMLElement {
           font-size: 14px;
           text-decoration: none;
           letter-spacing: 1px;
-          font-family: 'Calibri Light', Calibri, Arial, sans-serif;
-          font-weight: 400;
+          font-family: 'Calibri Light', Helvetica, Calibri, Arial, sans-serif;
+          font-weight: 300;
           transition: font-weight 0.5s cubic-bezier(0.4,0,0.2,1), color 0.5s;
           position: relative;
           min-height: 60px;
