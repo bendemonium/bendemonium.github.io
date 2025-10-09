@@ -1,1 +1,207 @@
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSekC7WGBtcGzmhX8ojGS4gRQ88IXfUdQFDzHDbhYBYNq5Dulw/viewform?embedded=true" width="640" height="945" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="assets/components/navbar.js" defer></script>
+    <script type="module" src="assets/components/a11y-panel.js"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bendemonium</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: 'Calibri Light', Calibri, Arial, sans-serif;
+			font-weight: 300;
+			display: flex;
+			color: #000;
+		}
+		.main-content {
+			margin-left: 80px;
+			padding: 40px;
+			width: calc(100% - 60px);
+            font-family: Helvetica, Arial, sans-serif;
+		}
+	</style>
+</head>
+<body>
+	<nav-bar></nav-bar>
+    <a11y-panel></a11y-panel>
+	<div class="main-content">
+		<div style="margin-bottom: 16px;">
+			<div style="font-size: 2.7em; font-weight: 500; font-family: 'Calibri Light', Helvetica, Arial, sans-serif;">Ridhi Bandaru</div>
+			<div style="font-size: 1.6em; font-weight: 400; font-family: 'Calibri Light', Helvetica, Arial, sans-serif; margin-top: 2px;">/rɪdʱiː bəŋɖaːɾuː/ </div>
+			<!-- <div style="font-size: 1em; font-weight: 50; font-family: 'Calibri Light', Calibri, Arial, sans-serif; margin-top: 2px;"><i>ri-dee ban-der-oo</i></div> -->
+		</div>
+        <div style="position:sticky;top:0;">
+            <nav id="hbar" style="display:flex;gap:12px;align-items:center;padding:10px 12px;font-family:Helvetica,Arial,sans-serif;">
+                <button data-target="s1" style="border:none;background:#fff;padding:6px 10px;border-radius:8px;cursor:pointer;font-weight:400;">[authored]</button>
+                <button data-target="s2" style="border:none;background:#fff;padding:6px 10px;border-radius:8px;cursor:pointer;font-weight:400;">[been acknowledged]</button>
+            </nav>
+        </div>
+        <div id="stage" style="position:relative;height:70vh;overflow:hidden;background:#fff;">
+            <section id="s1" style="position:absolute;inset:0;padding:24px;box-sizing:border-box;display:block;">
+                <div class="pub-box" style="width: 90%; max-width: 9in; background: #ffffff; color: #000; padding: 16px; ">
+                        <div style="width: 100%; box-sizing: border-box;">
+                            <ul id="pub-list" style="list-style: none; padding: 0; margin: 0; font-size: 0.9em; font-family: 'Calibri Light', Helvetica, Calibri, Arial, sans-serif;"></ul>
+                        </div>
+                    </div>
+            </section>
+            <section id="s2" style="position:absolute;inset:0;padding:24px;box-sizing:border-box;display:none;">
+                <p>I LOVE it when someone acknowedges me in their work GUSHHH;; truly an honor, truly humbling</p>
+                <div class="pub-box" style="width: 90%; max-width: 9in; background: #ffffff; color: #000; padding: 16px; ">
+                        <div style="width: 100%; box-sizing: border-box;">
+                            <ul id="ack-list" style="list-style: none; padding: 0; margin: 0; font-size: 0.9em; font-family: 'Calibri Light', Helvetica, Calibri, Arial, sans-serif;"></ul>
+                        </div>
+                    </div>
+            </section>
+        </div>
+        </div>
+	</div>
+</body>
+</html>
+
+<script>
+  const MyName = "Ridhi Bandaru"; // stays bold
+
+  fetch('assets/publications.json')
+    .then(r => r.json())
+    .then(items => {
+      const list = document.getElementById('pub-list');
+      items.sort((a, b) => (b.year || 0) - (a.year || 0));
+
+      items.forEach(p => {
+        const li = document.createElement('li');
+        li.style.marginBottom = '14px';
+
+        // --- Title (clickable if link given) ---
+        const titleHTML = p.link
+          ? `<a href="${p.link}" target="_blank" style="color:#000; text-decoration:underline; font-size:1.1em; font-weight:600;">${p.title}</a>`
+          : `<span style="font-size:1.1em; font-weight:500;">${p.title}</span>`;
+
+        // --- Year & Status inline with title ---
+        const metaText = [p.status, p.year].filter(Boolean).join(', ');
+        const metaHTML = metaText
+          ? `<span style="font-style:italic; color:#555; font-size:0.9em; margin-left:6px;">${metaText}</span>`
+          : '';
+
+        // --- Resource links [code / demo / slides / talk] ---
+        const resourceLinks = [];
+        if (p.code) resourceLinks.push(`<a href="${p.code}" target="_blank" style="color:#000; text-decoration:underline;">code</a>`);
+        if (p.demo) resourceLinks.push(`<a href="${p.demo}" target="_blank" style="color:#000; text-decoration:underline;">demo</a>`);
+        if (p.slides) resourceLinks.push(`<a href="${p.slides}" target="_blank" style="color:#000; text-decoration:underline;">slides</a>`);
+        if (p.talk) resourceLinks.push(`<a href="${p.talk}" target="_blank" style="color:#000; text-decoration:underline;">talk</a>`);
+        const resourcesHTML = resourceLinks.length
+          ? `<div style="font-size:0.85em; color:#555;">[ ${resourceLinks.join(' / ')} ]</div>`
+          : '';
+
+        // --- Authors ---
+        const authorsHTML = (p.authors || '').replaceAll(
+          MyName,
+          `<span style="font-weight:500;">${MyName}</span>`
+        );
+
+        // --- Venue ---
+        const venueLine = (p.venue || p.journal || p.conference)
+          ? `<div><em>${p.venue || p.journal || p.conference}</em></div>`
+          : '';
+
+        li.innerHTML = `
+          <div>${titleHTML}${metaHTML}</div>
+          <div>${authorsHTML}</div>
+          ${venueLine}
+          ${resourcesHTML}
+        `;
+
+        list.appendChild(li);
+      });
+    })
+    .catch(err => console.error('Error loading papers.json:', err));
+</script>
+
+<script>
+
+  fetch('assets/acks.json')
+    .then(r => r.json())
+    .then(items => {
+      const list = document.getElementById('ack-list');
+      items.sort((a, b) => (b.year || 0) - (a.year || 0));
+
+      items.forEach(p => {
+        const li = document.createElement('li');
+        li.style.marginBottom = '14px';
+
+        // --- Title (clickable if link given) ---
+        const titleHTML = p.link
+          ? `<a href="${p.link}" target="_blank" style="color:#000; text-decoration:underline; font-size:1.1em; font-weight:600;">${p.title}</a>`
+          : `<span style="font-size:1.1em; font-weight:500;">${p.title}</span>`;
+
+        // --- Year & Status inline with title ---
+        const metaText = [p.status, p.year].filter(Boolean).join(', ');
+        const metaHTML = metaText
+          ? `<span style="font-style:italic; color:#555; font-size:0.9em; margin-left:6px;">${metaText}</span>`
+          : '';
+
+        // --- Resource links [code / demo / slides / talk] ---
+        const resourceLinks = [];
+        if (p.code) resourceLinks.push(`<a href="${p.code}" target="_blank" style="color:#000; text-decoration:underline;">code</a>`);
+        if (p.demo) resourceLinks.push(`<a href="${p.demo}" target="_blank" style="color:#000; text-decoration:underline;">demo</a>`);
+        if (p.slides) resourceLinks.push(`<a href="${p.slides}" target="_blank" style="color:#000; text-decoration:underline;">slides</a>`);
+        if (p.talk) resourceLinks.push(`<a href="${p.talk}" target="_blank" style="color:#000; text-decoration:underline;">talk</a>`);
+        const resourcesHTML = resourceLinks.length
+          ? `<div style="font-size:0.85em; color:#555;">[ ${resourceLinks.join(' / ')} ]</div>`
+          : '';
+
+        // --- Authors ---
+        const authorsHTML = (p.authors || '').replaceAll(
+          MyName,
+          `<span style="font-weight:500;">${MyName}</span>`
+        );
+
+        // --- Venue ---
+        const venueLine = (p.venue || p.journal || p.conference)
+          ? `<div><em>${p.venue || p.journal || p.conference}</em></div>`
+          : '';
+
+        li.innerHTML = `
+          <div>${titleHTML}${metaHTML}</div>
+          <div>${authorsHTML}</div>
+          ${venueLine}
+          ${resourcesHTML}
+        `;
+
+        list.appendChild(li);
+      });
+    })
+    .catch(err => console.error('Error loading papers.json:', err));
+</script>
+
+<script>
+  const buttons = [...document.querySelectorAll('#hbar button')];
+  const panels  = [...document.querySelectorAll('#stage section')];
+
+  function show(id, updateHash = true) {
+    // toggle panels
+    panels.forEach(p => p.style.display = p.id === id ? 'block' : 'none');
+
+    // style active button
+    buttons.forEach(b => {
+      if (b.dataset.target === id) {
+        b.style.fontWeight = '700';
+      } else {
+        b.style.fontWeight = '400';
+      }
+    });
+
+    // update hash and focus
+    if (updateHash) history.replaceState(null, '', '#' + id);
+    const h = document.querySelector('#' + id + ' h2');
+    if (h) h.setAttribute('tabindex', '-1'), h.focus({ preventScroll: true });
+  }
+
+  buttons.forEach(b => b.addEventListener('click', () => show(b.dataset.target)));
+
+  window.addEventListener('load', () => {
+    const id = location.hash.slice(1);
+    show(panels.some(p => p.id === id) ? id : panels[0].id, false);
+  });
+</script>
