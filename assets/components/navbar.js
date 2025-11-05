@@ -43,7 +43,7 @@ class Navbar extends HTMLElement {
       </style>
       <nav class="sidebar">
         <a class="nav-item" href="index.html">home</a>
-        <a class="nav-item" href="about.html">about</a>
+        <!--  <a class="nav-item" href="about.html">about</a> --!>
         <a class="nav-item" href="research.html">research</a>
         <a class="nav-item" href="papers.html">papers</a>
         <a class="nav-item" href="cv.html">cv</a>
