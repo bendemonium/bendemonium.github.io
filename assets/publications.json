@@ -1,12 +1,26 @@
 [
   {
-    "authors": "Ridhi Bandaru, Abhishek Dedhe, Brandon Lee, Michael Xiong, Stephen M. Ferrigno, Steven T. Piantadosi, Jessica F. Cantlon",
+    "authors": "Ridhi Bandaru, Abhishek Dedhe, Brandon Lee, Michael Xiong, Steve Ferrigno, Steve Piantadosi, Jessica Cantlon",
     "title": "One Cognitively Plausible Language of Thought for Hierarchical Sequence Generation",
     "status": "In prep"
   },
   {
-    "authors": "Mukund Choudhary, Ridhi Bandaru, Abhishek Dedhe, Ananya Agrawal, Monojit Choudhury",
+    "authors": "Mukund Choudhary, Ridhi Bandaru, Abhishek Dedhe, Ananya Agrawal, Jessica Cantlon, Monojit Choudhury",
     "title": "Parallels in Biological and Artificial Hierarchical Sequence Processing",
     "status": "In prep"
+  },
+  {
+    "authors": "Mukund Choudhary, Ananya Agrawal, Ridhi Bandaru, Monojit Choudhury, Abhishek Dedhe",
+    "title": "Stochastic Parrot See, Stochastic Parrot Do: Hiearchical Sequence Processing Across Artificial and Biological Intelligences",
+    "status": "Under review",
+    "venue": "Proceedings of the Annual Meeting of the Cogntitive Science Society, Volume 48 (CogSci 2026)"
+  },
+  {
+    "authors": "Ridhi Bandaru, Abhishek Dedhe",
+    "title": "The price of hierarchical reasoning",
+    "status": "Under review",
+    "type": "Abstract",
+    "year": 2026,
+    "venue": "Machine+Behavior Conference 2026"
   }
 ]
