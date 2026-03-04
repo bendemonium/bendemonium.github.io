@@ -145,10 +145,7 @@
           : '';
 
         // --- Authors ---
-        const authorsHTML = (p.authors || '').replaceAll(
-          MyName,
-          `<span style="font-weight:500;">${MyName}</span>`
-        );
+        const authorsHTML = `<span style="font-size:0.9em">${(p.authors || '')} </span>`;
 
         // --- Venue ---
         const venueLine = (p.venue || p.journal || p.conference)
