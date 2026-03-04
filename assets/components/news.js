@@ -13,7 +13,7 @@ class News extends HTMLElement {
 						<span style="min-width: 100px ; color: #44444483;">2025-Oct-23</span>
 						<span>
 							Talk @
-							<a href="https://www.cmu.edu/dietrich/psychology/caoslab/" target="_blank" style="color: #000; text-decoration: underline;">CAOS Lab</a>, Carnegie Mellon University
+							<a href="https://www.cmu.edu/dietrich/psychology/caoslab/" target="_blank" style="color: #000; text-decoration: underline;">CAOs Lab</a>, Carnegie Mellon University
 						</span>
 					</li>
 					</ul>
