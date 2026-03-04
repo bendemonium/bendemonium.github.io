@@ -69,8 +69,8 @@
 
         // --- Title (clickable if link given) ---
         const titleHTML = p.link
-          ? `<a href="${p.link}" target="_blank" style="color:#000; text-decoration:underline; font-size:1.1em; font-weight:600;">${p.title}</a>`
-          : `<span style="font-size:1.1em; font-weight:500;">${p.title}</span>`;
+          ? `<a href="${p.link}" target="_blank" style="color:#000; text-decoration:underline; font-size:1em; font-weight:600;">${p.title}</a>`
+          : `<span style="font-size:1em; font-weight:500;">${p.title}</span>`;
 
         // --- Year & Status inline with title ---
         const metaText = [p.status, p.year].filter(Boolean).join(', ');
@@ -85,7 +85,7 @@
         if (p.slides) resourceLinks.push(`<a href="${p.slides}" target="_blank" style="color:#000; text-decoration:underline;">slides</a>`);
         if (p.talk) resourceLinks.push(`<a href="${p.talk}" target="_blank" style="color:#000; text-decoration:underline;">talk</a>`);
         const resourcesHTML = resourceLinks.length
-          ? `<div style="font-size:0.1em; color:#555;">[ ${resourceLinks.join(' / ')} ]</div>`
+          ? `<div style="font-size:0.9em; color:#555;">[ ${resourceLinks.join(' / ')} ]</div>`
           : '';
 
         // --- Authors ---
@@ -126,8 +126,8 @@
 
         // --- Title (clickable if link given) ---
         const titleHTML = p.link
-          ? `<a href="${p.link}" target="_blank" style="color:#000; text-decoration:underline; font-size:1.1em; font-weight:600;">${p.title}</a>`
-          : `<span style="font-size:1.1em; font-weight:500;">${p.title}</span>`;
+          ? `<a href="${p.link}" target="_blank" style="color:#000; text-decoration:underline; font-size:1em; font-weight:600;">${p.title}</a>`
+          : `<span style="font-size:1em; font-weight:500;">${p.title}</span>`;
 
         // --- Year & Status inline with title ---
         const metaText = [p.status, p.year].filter(Boolean).join(', ');
