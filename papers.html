@@ -84,7 +84,7 @@
         if (p.demo) resourceLinks.push(`<a href="${p.demo}" target="_blank" style="color:#000; text-decoration:underline;">demo</a>`);
         if (p.talk) resourceLinks.push(`<a href="${p.talk}" target="_blank" style="color:#000; text-decoration:underline;">talk</a>`);
         const resourcesHTML = resourceLinks.length
-          ? `<div style="font-size:0.9em; color:#555;">[ ${resourceLinks.join(' / ')} ]</div>`
+          ? `<div style="font-size:0.85em; color:#555;">[ ${resourceLinks.join(' / ')} ]</div>`
           : '';
 
         // --- Authors ---
@@ -95,7 +95,7 @@
 
         // --- Venue ---
         const venueLine = (p.venue || p.journal || p.conference)
-          ? `<div><em>${p.venue || p.journal || p.conference}</em></div>`
+          ? `<div style="font-size=0.9em"><em>${p.venue || p.journal || p.conference}</em></div>`
           : '';
 
         li.innerHTML = `
@@ -149,7 +149,7 @@
 
         // --- Venue ---
         const venueLine = (p.venue || p.journal || p.conference)
-          ? `<div><em>${p.venue || p.journal || p.conference}</em></div>`
+          ? `<div style="font-size=0.9em"><em>${p.venue || p.journal || p.conference}</em></div>`
           : '';
 
         li.innerHTML = `
