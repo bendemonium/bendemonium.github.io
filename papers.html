@@ -82,17 +82,16 @@
         const resourceLinks = [];
         if (p.code) resourceLinks.push(`<a href="${p.code}" target="_blank" style="color:#000; text-decoration:underline;">code</a>`);
         if (p.demo) resourceLinks.push(`<a href="${p.demo}" target="_blank" style="color:#000; text-decoration:underline;">demo</a>`);
-        if (p.slides) resourceLinks.push(`<a href="${p.slides}" target="_blank" style="color:#000; text-decoration:underline;">slides</a>`);
         if (p.talk) resourceLinks.push(`<a href="${p.talk}" target="_blank" style="color:#000; text-decoration:underline;">talk</a>`);
         const resourcesHTML = resourceLinks.length
           ? `<div style="font-size:0.9em; color:#555;">[ ${resourceLinks.join(' / ')} ]</div>`
           : '';
 
         // --- Authors ---
-        const authorsHTML = (p.authors || '').replaceAll(
+        const authorsHTML = `<span style="font-size:0.9em">${(p.authors || '').replaceAll(
           MyName,
           `<span style="font-weight:500;">${MyName}</span>`
-        );
+        )}</span>`;
 
         // --- Venue ---
         const venueLine = (p.venue || p.journal || p.conference)
