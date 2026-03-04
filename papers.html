@@ -75,7 +75,7 @@
         // --- Year & Status inline with title ---
         const metaText = [p.status, p.year].filter(Boolean).join(', ');
         const metaHTML = metaText
-          ? `<span style="font-style:italic; color:#555; font-size:0.9em; margin-left:6px;">${metaText}</span>`
+          ? `<span style="font-style:italic; color:#555; font-size:0.7em; margin-left:6px;">${metaText}</span>`
           : '';
 
         // --- Resource links [code / demo / slides / talk] ---
@@ -85,7 +85,7 @@
         if (p.slides) resourceLinks.push(`<a href="${p.slides}" target="_blank" style="color:#000; text-decoration:underline;">slides</a>`);
         if (p.talk) resourceLinks.push(`<a href="${p.talk}" target="_blank" style="color:#000; text-decoration:underline;">talk</a>`);
         const resourcesHTML = resourceLinks.length
-          ? `<div style="font-size:0.85em; color:#555;">[ ${resourceLinks.join(' / ')} ]</div>`
+          ? `<div style="font-size:0.7em; color:#555;">[ ${resourceLinks.join(' / ')} ]</div>`
           : '';
 
         // --- Authors ---
