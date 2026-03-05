@@ -29,22 +29,28 @@
 		<name-bar></name-bar>
         <div style="position:sticky;top:0;">
             <nav id="hbar" style="display:flex;gap:12px;align-items:center;padding: 0px 12px;font-family:Helvetica,Arial,sans-serif;">
-                <button data-target="s1" style="border:none;padding:6px 10px;cursor:pointer;font-weight:400; background: hsla(0, 0%, 100%, 0);">[authored]</button>
-                <button data-target="s2" style="border:none;padding:6px 10px;cursor:pointer;font-weight:400; background: hsla(0, 0%, 100%, 0);">[acknowledged in]</button>
+                <button data-target="s1" style="border:none;padding:6px 10px;cursor:pointer;font-weight:400; background: hsla(0, 0%, 100%, 0);">[objective / active projects]</button>
+                <button data-target="s2" style="border:none;padding:6px 10px;cursor:pointer;font-weight:400; background: hsla(0, 0%, 100%, 0);">[authored]</button>
+                <button data-target="s3" style="border:none;padding:6px 10px;cursor:pointer;font-weight:400; background: hsla(0, 0%, 100%, 0);">[acknowledged in]</button>
             </nav>
         </div>
         <div id="stage" style="position:relative;">
-            <section id="s1" style="position:absolute;inset:0;padding:24px;box-sizing:border-box;display:block;">
+          <section id="s1" style="position:absolute;inset:0;padding:24px;box-sizing:border-box;display:block;">
+                <div class="research-box" style="width: 90%; max-width: 8.5in; color: #000; padding: 12px; ">
+                        
+                    </div>
+            </section>
+            <section id="s2" style="position:absolute;inset:0;padding:24px;box-sizing:border-box;display:block;">
                 <div class="pub-box" style="width: 90%; max-width: 8.5in; color: #000; padding: 12px; ">
                         <div style="width: 100%; box-sizing: border-box;">
-                            <ul id="pub-list" style="list-style: none; padding: 0; margin: 0; font-size: 0.9em; font-family: 'Calibri Light', Helvetica, Calibri, Arial, sans-serif;"></ul>
+                            <ul id="pub-list" style="list-style: none; padding: 0; margin: 0; font-size: 0.9em; font-family: Helvetica, Calibri, Arial, sans-serif;"></ul>
                         </div>
                     </div>
             </section>
-            <section id="s2" style="position:absolute;inset:0;padding:24px;box-sizing:border-box;display:none;">
-                <div class="pub-box" style="width: 90%; max-width: 9in; color: #000; padding: 16px; ">
+            <section id="s3" style="position:absolute;inset:0;padding:24px;box-sizing:border-box;display:none;">
+                <div class="pub-box" style="width: 90%; max-width: 8.5in; color: #000; padding: 12px; ">
                         <div style="width: 100%; box-sizing: border-box;">
-                            <ul id="ack-list" style="list-style: none; padding: 0; margin: 0; font-size: 0.9em; font-family: 'Calibri Light', Helvetica, Calibri, Arial, sans-serif;"></ul>
+                            <ul id="ack-list" style="list-style: none; padding: 0; margin: 0; font-size: 0.9em; font-family: Helvetica, Calibri, Arial, sans-serif;"></ul>
                         </div>
                     </div>
             </section>
