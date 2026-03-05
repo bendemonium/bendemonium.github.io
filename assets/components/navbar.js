@@ -3,10 +3,9 @@ class Navbar extends HTMLElement {
     this.innerHTML = `
       <style>
         .sidebar {
-          width: 60px;
-          min-width: 60px;
+          min-width: 45px;
           max-width: 60px;
-          background: none;
+          background: #ffffff;
           height: 100vh;
           display: flex;
           flex-direction: column;
@@ -19,20 +18,20 @@ class Navbar extends HTMLElement {
           overflow: hidden;
         }
         .nav-item {
-          color: #000;
+          color: #000000;
           margin: 14px 0;
           writing-mode: vertical-rl;
           transform: rotate(180deg);
-          text-align: center;
+          text-align: right;
           cursor: pointer;
-          font-size: 14px;
+          font-size: 13px;
           text-decoration: none;
           letter-spacing: 1px;
-          font-family: 'Calibri Light', Helvetica, Calibri, Arial, sans-serif;
+          font-family: Helvetica, Calibri, Arial, sans-serif;
           font-weight: 300;
           position: relative;
-          min-height: 60px;
-          max-height: 75px;
+          min-height: 50px;
+          max-height: 65px;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -45,7 +44,7 @@ class Navbar extends HTMLElement {
         <!--  <a class="nav-item" href="about.html">about</a> --!>
         <a class="nav-item" href="research.html">research</a>
         <a class="nav-item" href="papers.html">papers</a>
-        // <a class="nav-item" href="other.html">other artifacts</a>
+        <a class="nav-item" href="other.html">other artifacts</a>
         <a class="nav-item" href="call.html">call me out</a>
       </nav>
     `;
