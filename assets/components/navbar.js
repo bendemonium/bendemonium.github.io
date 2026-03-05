@@ -33,7 +33,7 @@ class Navbar extends HTMLElement {
           transition: font-weight 0.5s cubic-bezier(0.4,0,0.2,1), color 0.5s;
           position: relative;
           min-height: 60px;
-          max-height: 60px;
+          max-height: 70px;
           display: flex;
           flex-direction: column;
           align-items: center;
