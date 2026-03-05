@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <script src="assets/components/navbar.js" defer></script>
-    <script src="assets/components/name.js"></script>
+	<script src="assets/components/name.js" defer></script>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>ridhi bandaru >:-]</title>
@@ -27,177 +27,12 @@
 	<nav-bar></nav-bar>
 	<div class="main-content">
 		<name-bar></name-bar>
-        <div style="position:sticky;top:0;">
-            <nav id="hbar" style="display:flex;gap:12px;align-items:center;padding: 0px 12px;font-family:Helvetica,Arial,sans-serif;">
-                <button data-target="s1" style="border:none;padding:6px 10px;cursor:pointer;font-weight:400; background: hsla(0, 0%, 100%, 0);">[objective / active projects]</button>
-                <button data-target="s2" style="border:none;padding:6px 10px;cursor:pointer;font-weight:400; background: hsla(0, 0%, 100%, 0);">[authored]</button>
-                <button data-target="s3" style="border:none;padding:6px 10px;cursor:pointer;font-weight:400; background: hsla(0, 0%, 100%, 0);">[acknowledged in]</button>
-            </nav>
+        <p>still heavily under construction. until then, here's a token from kaladesh</p>
+        <div>
+            <img src="assets/wily_bandar.webp" alt="nothing to see here" style="height: 40vh;">
         </div>
-        <div id="stage" style="position:relative;">
-          <section id="s1" style="position:absolute;inset:0;padding:24px;box-sizing:border-box;display:block;">
-                <div class="research-box" style="width: 90%; max-width: 8.5in; color: #000; padding: 12px; ">
-                        
-                    </div>
-            </section>
-            <section id="s2" style="position:absolute;inset:0;padding:24px;box-sizing:border-box;display:block;">
-                <div class="pub-box" style="width: 90%; max-width: 8.5in; color: #000; padding: 12px; ">
-                        <div style="width: 100%; box-sizing: border-box;">
-                            <ul id="pub-list" style="list-style: none; padding: 0; margin: 0; font-size: 0.9em; font-family: Helvetica, Calibri, Arial, sans-serif;"></ul>
-                        </div>
-                    </div>
-            </section>
-            <section id="s3" style="position:absolute;inset:0;padding:24px;box-sizing:border-box;display:none;">
-                <div class="pub-box" style="width: 90%; max-width: 8.5in; color: #000; padding: 12px; ">
-                        <div style="width: 100%; box-sizing: border-box;">
-                            <ul id="ack-list" style="list-style: none; padding: 0; margin: 0; font-size: 0.9em; font-family: Helvetica, Calibri, Arial, sans-serif;"></ul>
-                        </div>
-                    </div>
-            </section>
         </div>
         </div>
 	</div>
 </body>
 </html>
-
-<script>
-  const MyName = "Ridhi Bandaru"; // stays bold
-
-  fetch('assets/publications.json')
-    .then(r => r.json())
-    .then(items => {
-      const list = document.getElementById('pub-list');
-      items.sort((a, b) => (b.year || 0) - (a.year || 0));
-
-      items.forEach(p => {
-        const li = document.createElement('li');
-        li.style.marginBottom = '10px';
-
-        // --- Title (clickable if link given) ---
-        const titleHTML = p.link
-          ? `<a href="${p.link}" target="_blank" style="color:#000; text-decoration:underline; font-size:1em; font-weight:600;">${p.title}</a>`
-          : `<span style="font-size:1em; font-weight:500;">${p.title}</span>`;
-
-        // --- Year & Status inline with title ---
-        const metaText = [p.status, p.year].filter(Boolean).join(', ');
-        const metaHTML = metaText
-          ? `<span style="font-style:italic; color:#555; font-size:0.9em; margin-left:6px;">${metaText}</span>`
-          : '';
-
-        // --- Resource links [code / demo / slides / talk] ---
-        const resourceLinks = [];
-        if (p.code) resourceLinks.push(`<a href="${p.code}" target="_blank" style="color:#000; text-decoration:underline;">code</a>`);
-        if (p.demo) resourceLinks.push(`<a href="${p.demo}" target="_blank" style="color:#000; text-decoration:underline;">demo</a>`);
-        if (p.talk) resourceLinks.push(`<a href="${p.talk}" target="_blank" style="color:#000; text-decoration:underline;">talk</a>`);
-        const resourcesHTML = resourceLinks.length
-          ? `<div style="font-size:0.85em; color:#555;">[ ${resourceLinks.join(' / ')} ]</div>`
-          : '';
-
-        // --- Authors ---
-        const authorsHTML = `<span style="font-size:0.9em">${(p.authors || '').replaceAll(
-          MyName,
-          `<span style="font-weight:500;">${MyName}</span>`
-        )}</span>`;
-
-        // --- Venue ---
-        const venueLine = (p.venue || p.journal || p.conference)
-          ? `<div style="font-size=0.9em"><em>${p.venue || p.journal || p.conference}</em></div>`
-          : '';
-
-        li.innerHTML = `
-          <div>${titleHTML}${metaHTML}</div>
-          <div>${authorsHTML}</div>
-          ${venueLine}
-          ${resourcesHTML}
-        `;
-
-        list.appendChild(li);
-      });
-    })
-    .catch(err => console.error('Error loading papers.json:', err));
-</script>
-
-<script>
-
-  fetch('assets/acks.json')
-    .then(r => r.json())
-    .then(items => {
-      const list = document.getElementById('ack-list');
-      items.sort((a, b) => (b.year || 0) - (a.year || 0));
-
-      items.forEach(p => {
-        const li = document.createElement('li');
-        li.style.marginBottom = '10px';
-
-        // --- Title (clickable if link given) ---
-        const titleHTML = p.link
-          ? `<a href="${p.link}" target="_blank" style="color:#000; text-decoration:underline; font-size:1em; font-weight:600;">${p.title}</a>`
-          : `<span style="font-size:1em; font-weight:500;">${p.title}</span>`;
-
-        // --- Year & Status inline with title ---
-        const metaText = [p.status, p.year].filter(Boolean).join(', ');
-        const metaHTML = metaText
-          ? `<span style="font-style:italic; color:#555; font-size:0.9em; margin-left:6px;">${metaText}</span>`
-          : '';
-
-        // --- Resource links [code / demo / slides / talk] ---
-        const resourceLinks = [];
-        if (p.code) resourceLinks.push(`<a href="${p.code}" target="_blank" style="color:#000; text-decoration:underline;">code</a>`);
-        if (p.demo) resourceLinks.push(`<a href="${p.demo}" target="_blank" style="color:#000; text-decoration:underline;">demo</a>`);
-        if (p.slides) resourceLinks.push(`<a href="${p.slides}" target="_blank" style="color:#000; text-decoration:underline;">slides</a>`);
-        if (p.talk) resourceLinks.push(`<a href="${p.talk}" target="_blank" style="color:#000; text-decoration:underline;">talk</a>`);
-        const resourcesHTML = resourceLinks.length
-          ? `<div style="font-size:0.85em; color:#555;">[ ${resourceLinks.join(' / ')} ]</div>`
-          : '';
-
-        // --- Authors ---
-        const authorsHTML = `<span style="font-size:0.9em">${(p.authors || '')} </span>`;
-
-        // --- Venue ---
-        const venueLine = (p.venue || p.journal || p.conference)
-          ? `<div style="font-size:0.9em;"><em>${p.venue || p.journal || p.conference}</em></div>`
-          : '';
-
-        li.innerHTML = `
-          <div>${titleHTML}${metaHTML}</div>
-          <div>${authorsHTML}</div>
-          ${venueLine}
-          ${resourcesHTML}
-        `;
-
-        list.appendChild(li);
-      });
-    })
-    .catch(err => console.error('Error loading papers.json:', err));
-</script>
-
-<script>
-  const buttons = [...document.querySelectorAll('#hbar button')];
-  const panels  = [...document.querySelectorAll('#stage section')];
-
-  function show(id, updateHash = true) {
-    // toggle panels
-    panels.forEach(p => p.style.display = p.id === id ? 'block' : 'none');
-
-    // style active button
-    buttons.forEach(b => {
-      if (b.dataset.target === id) {
-        b.style.textDecoration = 'underline';
-      } else {
-        b.style.textDecoration = 'none';
-      }
-    });
-
-    // update hash and focus
-    if (updateHash) history.replaceState(null, '', '#' + id);
-    const h = document.querySelector('#' + id + ' h2');
-    if (h) h.setAttribute('tabindex', '-1'), h.focus({ preventScroll: true });
-  }
-
-  buttons.forEach(b => b.addEventListener('click', () => show(b.dataset.target)));
-
-  window.addEventListener('load', () => {
-    const id = location.hash.slice(1);
-    show(panels.some(p => p.id === id) ? id : panels[0].id, false);
-  });
-</script>

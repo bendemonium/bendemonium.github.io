@@ -30,10 +30,9 @@ class Navbar extends HTMLElement {
           letter-spacing: 1px;
           font-family: 'Calibri Light', Helvetica, Calibri, Arial, sans-serif;
           font-weight: 300;
-          transition: font-weight 0.5s cubic-bezier(0.4,0,0.2,1), color 0.5s;
           position: relative;
           min-height: 60px;
-          max-height: 70px;
+          max-height: 75px;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -44,7 +43,7 @@ class Navbar extends HTMLElement {
       <nav class="sidebar">
         <a class="nav-item" href="index.html">home</a>
         <!--  <a class="nav-item" href="about.html">about</a> --!>
-        <a class="nav-item" href="research.html">research + artifacts</a>
+        <a class="nav-item" href="research.html">research +artifacts</a>
         <a class="nav-item" href="papers.html">papers</a>
         <a class="nav-item" href="other.html">other artifacts</a>
         <a class="nav-item" href="call.html">call me out</a>
