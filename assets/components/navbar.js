@@ -43,9 +43,9 @@ class Navbar extends HTMLElement {
       <nav class="sidebar">
         <a class="nav-item" href="index.html">home</a>
         <!--  <a class="nav-item" href="about.html">about</a> --!>
-        <a class="nav-item" href="research.html">research +artifacts</a>
+        <a class="nav-item" href="research.html">research</a>
         <a class="nav-item" href="papers.html">papers</a>
-        <a class="nav-item" href="other.html">other artifacts</a>
+        // <a class="nav-item" href="other.html">other artifacts</a>
         <a class="nav-item" href="call.html">call me out</a>
       </nav>
     `;
