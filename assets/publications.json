@@ -17,13 +17,6 @@
   {
     "authors": "Ridhi Bandaru, Abhishek Dedhe",
     "title": "The price of hierarchical reasoning",
-    "type": "Extended abstract",
-    "status": "Under review",
-    "venue": "Machine+Behavior Conference 2026",
-    "links": {
-      "pdf": "https://arxiv.org/abs/2406.12345",
-      "code": "https://github.com/ridhibandaru/hierarchical-reasoning"
-    },
-    "awards": "accepted as a talk"
+    "status": "Under review"
   }
 ]

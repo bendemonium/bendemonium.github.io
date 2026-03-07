@@ -104,7 +104,7 @@
           }
         }
         const linksHTML = links.length
-          ? `<div style="font-size:0.85em; color:#555;">[ ${links.join(' / ')} ]</div>`
+          ? `<div style="font-size:0.8em; color:#555;">&lt ${links.join(' / ')} &gt</div>`
           : '';
 
         // --- Authors ---
@@ -115,7 +115,7 @@
 
         // --- Venue ---
         const venueLine = (p.venue || p.journal || p.conference)
-          ? `<div style="font-size:0.9em;"><em>${p.venue || p.journal || p.conference}</em>${p.awards ? ` <span style="font-size:0.75em; color:#777;">${p.awards}</span>` : ''}</div>`
+? `<div style="font-size:0.9em;\"><em>${p.venue || p.journal || p.conference}</em>${p.awards ? ` <span style="font-size:0.8em; color:#777;">${p.awards}</span>` : ''}</div>`
           : '';
 
         li.innerHTML = `
@@ -170,7 +170,7 @@
         const links = [];
         if (p.links) {
           for (const [name, url] of Object.entries(p.links)) {
-            links.push(`<a href="${url}" target="_blank" style="color:#000; text-decoration:underline;">${name}</a>`);
+            links.push(`<a href="${url}" target="_blank" style="color:#000; font-size:0.8em; text-decoration:underline;">${name}</a>`);
           }
         }
         const linksHTML = links.length
@@ -182,7 +182,7 @@
 
         // --- Venue ---
         const venueLine = (p.venue || p.journal || p.conference)
-          ? `<div style="font-size:0.9em;"><em>${p.venue || p.journal || p.conference}</em>${p.awards ? ` <span style="font-size:0.8em; color:#777;">${p.awards}</span>` : ''}</div>`
+          ? `<div style="font-size:0.9em;"><em>${p.venue || p.journal || p.conference}</em>${p.awards ? ` <span style="font-size:0.75em; color:#777;">${p.awards}</span>` : ''}</div>`
           : '';
 
         li.innerHTML = `
