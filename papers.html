@@ -67,63 +67,16 @@
     .then(r => r.json())
     .then(items => {
       const list = document.getElementById('pub-list');
-      items.sort((a, b) => (b.year || 0) - (a.year || 0));
-
-      items.forEach(p => {
-        const li = document.createElement('li');
-        li.style.marginBottom = '10px';
-
-        // --- Title (clickable if link given) ---
-        const titleHTML = p.link
-          ? `<a href="${p.link}" target="_blank" style="color:#000; text-decoration:underline; font-size:0.95; font-weight:400;">${p.title}</a>`
-          : `<span style="font-size:0.95em; font-weight:400;">${p.title}</span>`;
-
-        // --- Year & Status inline with title ---
-        const metaText = [p.status, p.year].filter(Boolean).join(', ');
-        const metaHTML = metaText
-          ? `<span style="font-style:italic; color:#555; font-size:0.9em; margin-left:6px;">${metaText}</span>`
-          : '';
-
-        // --- Resource links [code / demo / slides / talk] ---
-        const resourceLinks = [];
-        if (p.code) resourceLinks.push(`<a href="${p.code}" target="_blank" style="color:#000; text-decoration:underline;">code</a>`);
-        if (p.demo) resourceLinks.push(`<a href="${p.demo}" target="_blank" style="color:#000; text-decoration:underline;">demo</a>`);
-        if (p.talk) resourceLinks.push(`<a href="${p.talk}" target="_blank" style="color:#000; text-decoration:underline;">talk</a>`);
-        const resourcesHTML = resourceLinks.length
-          ? `<div style="font-size:0.85em; color:#555;">[ ${resourceLinks.join(' / ')} ]</div>`
-          : '';
-
-        // --- Authors ---
-        const authorsHTML = `<span style="font-size:0.9em">${(p.authors || '').replaceAll(
-          MyName,
-          `<span style="font-weight:500;">${MyName}</span>`
-        )}</span>`;
-
-        // --- Venue ---
-        const venueLine = (p.venue || p.journal || p.conference)
-          ? `<div style="font-size=0.9em"><em>${p.venue || p.journal || p.conference}</em></div>`
-          : '';
-
-        li.innerHTML = `
-          <div>${titleHTML}${metaHTML}</div>
-          <div>${authorsHTML}</div>
-          ${venueLine}
-          ${resourcesHTML}
-        `;
-
-        list.appendChild(li);
+      
+      // Define status order
+      const statusOrder = { "in prep": 1, "under review": 2, "in press": 3 };
+      
+      items.sort((a, b) => {
+        const statusA = statusOrder[a.status?.toLowerCase()] || 4;
+        const statusB = statusOrder[b.status?.toLowerCase()] || 4;
+        if (statusA !== statusB) return statusA - statusB;
+        return (b.year || 0) - (a.year || 0);
       });
-    })
-    .catch(err => console.error('Error loading papers.json:', err));
-</script>
-
-<script>
-
-  fetch('assets/acks.json')
-    .then(r => r.json())
-    .then(items => {
-      const list = document.getElementById('ack-list');
-      items.sort((a, b) => (b.year || 0) - (a.year || 0));
 
       items.forEach(p => {
         const li = document.createElement('li');
@@ -134,20 +87,94 @@
           ? `<a href="${p.link}" target="_blank" style="color:#000; text-decoration:underline; font-size:0.95em; font-weight:400;">${p.title}</a>`
           : `<span style="font-size:0.95em; font-weight:400;">${p.title}</span>`;
 
+        // --- Type in square brackets ---
+        const typeHTML = p.type ? ` <span style="font-size:0.9em; font-weight:300;">[${p.type}]</span>` : '';
+
         // --- Year & Status inline with title ---
         const metaText = [p.status, p.year].filter(Boolean).join(', ');
         const metaHTML = metaText
           ? `<span style="font-style:italic; color:#555; font-size:0.9em; margin-left:6px;">${metaText}</span>`
           : '';
 
-        // --- Resource links [code / demo / slides / talk] ---
-        const resourceLinks = [];
-        if (p.code) resourceLinks.push(`<a href="${p.code}" target="_blank" style="color:#000; text-decoration:underline;">code</a>`);
-        if (p.demo) resourceLinks.push(`<a href="${p.demo}" target="_blank" style="color:#000; text-decoration:underline;">demo</a>`);
-        if (p.slides) resourceLinks.push(`<a href="${p.slides}" target="_blank" style="color:#000; text-decoration:underline;">slides</a>`);
-        if (p.talk) resourceLinks.push(`<a href="${p.talk}" target="_blank" style="color:#000; text-decoration:underline;">talk</a>`);
-        const resourcesHTML = resourceLinks.length
-          ? `<div style="font-size:0.85em; color:#555;">[ ${resourceLinks.join(' / ')} ]</div>`
+        // --- Links ---
+        const links = [];
+        if (p.links) {
+          for (const [name, url] of Object.entries(p.links)) {
+            links.push(`<a href="${url}" target="_blank" style="color:#000; text-decoration:underline;">${name}</a>`);
+          }
+        }
+        const linksHTML = links.length
+          ? `<div style="font-size:0.85em; color:#555;">[ ${links.join(' / ')} ]</div>`
+          : '';
+
+        // --- Authors ---
+        const authorsHTML = `<span style="font-size:0.9em">${(p.authors || '').replaceAll(
+          MyName,
+          `<span style="font-weight:500;">${MyName}</span>`
+        )}</span>`;
+
+        // --- Venue ---
+        const venueLine = (p.venue || p.journal || p.conference)
+          ? `<div style="font-size:0.9em;"><em>${p.venue || p.journal || p.conference}</em>${p.awards ? ` <span style="font-size:0.75em; color:#777;">${p.awards}</span>` : ''}</div>`
+          : '';
+
+        li.innerHTML = `
+          <div>${titleHTML}${typeHTML}${metaHTML}</div>
+          <div>${authorsHTML}</div>
+          ${venueLine}
+          ${linksHTML}
+        `;
+
+        list.appendChild(li);
+      });
+    })
+    .catch(err => console.error('Error loading publications.json:', err));
+</script>
+
+<script>
+
+  fetch('assets/acks.json')
+    .then(r => r.json())
+    .then(items => {
+      const list = document.getElementById('ack-list');
+      
+      // Define status order
+      const statusOrder = { "in prep": 1, "under review": 2, "in press": 3 };
+      
+      items.sort((a, b) => {
+        const statusA = statusOrder[a.status?.toLowerCase()] || 4;
+        const statusB = statusOrder[b.status?.toLowerCase()] || 4;
+        if (statusA !== statusB) return statusA - statusB;
+        return (b.year || 0) - (a.year || 0);
+      });
+
+      items.forEach(p => {
+        const li = document.createElement('li');
+        li.style.marginBottom = '10px';
+
+        // --- Title (clickable if link given) ---
+        const titleHTML = p.link
+          ? `<a href="${p.link}" target="_blank" style="color:#000; text-decoration:underline; font-size:0.95em; font-weight:400;">${p.title}</a>`
+          : `<span style="font-size:0.95em; font-weight:400;">${p.title}</span>`;
+
+        // --- Type in square brackets ---
+        const typeHTML = p.type ? ` <span style="font-size:0.95em; font-weight:300;">[${p.type}]</span>` : '';
+
+        // --- Year & Status inline with title ---
+        const metaText = [p.status, p.year].filter(Boolean).join(', ');
+        const metaHTML = metaText
+          ? `<span style="font-style:italic; color:#555; font-size:0.9em; margin-left:6px;">${metaText}</span>`
+          : '';
+
+        // --- Links ---
+        const links = [];
+        if (p.links) {
+          for (const [name, url] of Object.entries(p.links)) {
+            links.push(`<a href="${url}" target="_blank" style="color:#000; text-decoration:underline;">${name}</a>`);
+          }
+        }
+        const linksHTML = links.length
+          ? `<div style="font-size:0.8em; color:#555;">[ ${links.join(' / ')} ]</div>`
           : '';
 
         // --- Authors ---
@@ -155,20 +182,20 @@
 
         // --- Venue ---
         const venueLine = (p.venue || p.journal || p.conference)
-          ? `<div style="font-size:0.9em;"><em>${p.venue || p.journal || p.conference}</em></div>`
+          ? `<div style="font-size:0.9em;"><em>${p.venue || p.journal || p.conference}</em>${p.awards ? ` <span style="font-size:0.8em; color:#777;">${p.awards}</span>` : ''}</div>`
           : '';
 
         li.innerHTML = `
-          <div>${titleHTML}${metaHTML}</div>
+          <div>${titleHTML}${typeHTML}${metaHTML}</div>
           <div>${authorsHTML}</div>
           ${venueLine}
-          ${resourcesHTML}
+          ${linksHTML}
         `;
 
         list.appendChild(li);
       });
     })
-    .catch(err => console.error('Error loading papers.json:', err));
+    .catch(err => console.error('Error loading acks.json:', err));
 </script>
 
 <script>

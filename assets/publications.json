@@ -10,14 +10,20 @@
     "status": "In prep"
   },
   {
-    "authors": "Mukund Choudhary, Ananya Agrawal, Ridhi Bandaru, Monojit Choudhury, Abhishek Dedhe",
+    "authors": "Mukund Choudhary, Ananya Agrawal*, Ridhi Bandaru*, Monojit Choudhury, Abhishek Dedhe",
     "title": "Stochastic Parrot See, Stochastic Parrot Do: Hiearchical Sequence Processing Across Artificial and Biological Intelligences",
     "status": "Under review"
   },
   {
     "authors": "Ridhi Bandaru, Abhishek Dedhe",
     "title": "The price of hierarchical reasoning",
-    "type": "Extended Abstract",
-    "status": "Under review"
+    "type": "Extended abstract",
+    "status": "Under review",
+    "venue": "Machine+Behavior Conference 2026",
+    "links": {
+      "pdf": "https://arxiv.org/abs/2406.12345",
+      "code": "https://github.com/ridhibandaru/hierarchical-reasoning"
+    },
+    "awards": "accepted as a talk"
   }
 ]
