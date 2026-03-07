@@ -76,7 +76,7 @@
         // --- Title (clickable if link given) ---
         const titleHTML = p.link
           ? `<a href="${p.link}" target="_blank" style="color:#000; text-decoration:underline; font-size:0.95; font-weight:600;">${p.title}</a>`
-          : `<span style="font-size:1em; font-weight:500;">${p.title}</span>`;
+          : `<span style="font-size:0.95em; font-weight:500;">${p.title}</span>`;
 
         // --- Year & Status inline with title ---
         const metaText = [p.status, p.year].filter(Boolean).join(', ');
@@ -132,7 +132,7 @@
         // --- Title (clickable if link given) ---
         const titleHTML = p.link
           ? `<a href="${p.link}" target="_blank" style="color:#000; text-decoration:underline; font-size:0.95em; font-weight:600;">${p.title}</a>`
-          : `<span style="font-size:1em; font-weight:500;">${p.title}</span>`;
+          : `<span style="font-size:0.95em; font-weight:500;">${p.title}</span>`;
 
         // --- Year & Status inline with title ---
         const metaText = [p.status, p.year].filter(Boolean).join(', ');
