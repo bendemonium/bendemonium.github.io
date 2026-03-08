@@ -108,7 +108,12 @@
           : '';
 
         // --- Authors ---
-        const authorsHTML = `<span style="font-size:0.9em">${(p.authors || '').replaceAll(
+        const formatAuthors = (authors) => {
+          const parts = authors.split(', ');
+          if (parts.length === 1) return authors;
+          return parts.slice(0, -1).join(', ') + ', & ' + parts[parts.length - 1];
+        };
+        const authorsHTML = `<span style="font-size:0.9em">${formatAuthors(p.authors || '').replaceAll(
           MyName,
           `<span style="font-weight:500;">${MyName}</span>`
         )}</span>`;
@@ -178,7 +183,12 @@
           : '';
 
         // --- Authors ---
-        const authorsHTML = `<span style="font-size:0.9em">${(p.authors || '')} </span>`;
+        const formatAuthors = (authors) => {
+          const parts = authors.split(', ');
+          if (parts.length === 1) return authors;
+          return parts.slice(0, -1).join(', ') + ', & ' + parts[parts.length - 1];
+        };
+        const authorsHTML = `<span style="font-size:0.9em">${formatAuthors(p.authors || '')} </span>`;
 
         // --- Venue ---
         const venueLine = (p.venue || p.journal || p.conference)
