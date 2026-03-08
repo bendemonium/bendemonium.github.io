@@ -111,7 +111,7 @@
         const formatAuthors = (authors) => {
           const parts = authors.split(', ');
           if (parts.length === 1) return authors;
-          return parts.slice(0, -1).join(', ') + ', & ' + parts[parts.length - 1];
+          return parts.slice(0, -1).join(', ') + ' & ' + parts[parts.length - 1];
         };
         const authorsHTML = `<span style="font-size:0.9em">${formatAuthors(p.authors || '').replaceAll(
           MyName,
@@ -186,7 +186,7 @@
         const formatAuthors = (authors) => {
           const parts = authors.split(', ');
           if (parts.length === 1) return authors;
-          return parts.slice(0, -1).join(', ') + ', & ' + parts[parts.length - 1];
+          return parts.slice(0, -1).join(', ') + ' & ' + parts[parts.length - 1];
         };
         const authorsHTML = `<span style="font-size:0.9em">${formatAuthors(p.authors || '')} </span>`;
 
