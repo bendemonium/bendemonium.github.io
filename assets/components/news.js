@@ -18,12 +18,83 @@ class News extends HTMLElement {
     this.loadNews();
   }
 
+  parseDate(rawDate) {
+    const monthMap = {
+      Jan: 1,
+      Feb: 2,
+      Mar: 3,
+      Apr: 4,
+      May: 5,
+      Jun: 6,
+      Jul: 7,
+      Aug: 8,
+      Sep: 9,
+      Oct: 10,
+      Nov: 11,
+      Dec: 12,
+    };
+
+    const normalized = String(rawDate).trim();
+    const match = normalized.match(/^(\d{4})-([A-Za-z]{3}|\d{1,2})-(\d{1,2})$/);
+    if (!match) {
+      return null;
+    }
+
+    const year = Number(match[1]);
+    const monthPart = match[2].toLowerCase();
+    const day = Number(match[3]);
+    const month = monthMap[monthPart] || Number(monthPart);
+    if (!year || !month || month < 1 || month > 12 || !day || day < 1 || day > 31) {
+      return null;
+    }
+
+    return new Date(year, month - 1, day);
+  }
+
+  formatDate(date) {
+    const monthNames = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+    const year = date.getFullYear();
+    const month = monthNames[date.getMonth()];
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
+
+  isTodayOrFuture(date) {
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const target = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+    return target >= today;
+  }
+
   async loadNews() {
     try {
       const response = await fetch('assets/news.json');
-      const newsData = await response.json();
+      const rawNews = await response.json();
+
+      const newsData = rawNews
+        .map(item => {
+          const parsedDate = this.parseDate(item.date);
+          return {
+            date: item.date,
+            content: item.content,
+            parsedDate,
+          };
+        })
+        .sort((a, b) => {
+          if (a.parsedDate && b.parsedDate) {
+            return b.parsedDate - a.parsedDate;
+          }
+          if (a.parsedDate) {
+            return -1;
+          }
+          if (b.parsedDate) {
+            return 1;
+          }
+          return 0;
+        });
 
       const newsList = this.querySelector('#news-list');
+      newsList.innerHTML = '';
 
       newsData.forEach(item => {
         const li = document.createElement('li');
@@ -31,8 +102,11 @@ class News extends HTMLElement {
         li.style.gap = '1.5rem';
         li.style.marginBottom = '4px';
 
+        const dateDisplay = item.parsedDate ? this.formatDate(item.parsedDate) : item.date;
+        const prefix = item.parsedDate && this.isTodayOrFuture(item.parsedDate) ? '! ' : '';
+
         li.innerHTML = `
-          <span style="min-width: 100px; color: #44444483;">${item.date}</span>
+          <span style="min-width: 100px; color: #44444483;">${prefix}${dateDisplay}</span>
           <span>${item.content}</span>
         `;
 
@@ -40,7 +114,6 @@ class News extends HTMLElement {
       });
     } catch (error) {
       console.error('Error loading news:', error);
-      // Fallback to default news item
       const newsList = this.querySelector('#news-list');
       const li = document.createElement('li');
       li.style.display = 'flex';
