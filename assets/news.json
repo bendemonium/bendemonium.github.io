@@ -1,6 +1,10 @@
 [
   {
     "date": "2025-Oct-23",
-    "content": "Talk @ <a href=\"https://www.cmu.edu/dietrich/psychology/caoslab/\" target=\"_blank\" style=\"color: #000; text-decoration: underline;\">CAOs Lab</a>, Carnegie Mellon University"
+    "content": "talk @ <a href=\"https://www.cmu.edu/dietrich/psychology/caoslab/\" target=\"_blank\" style=\"color: #000; text-decoration: underline;\">CAOs Lab</a>, Carnegie Mellon University"
+  },
+  {
+    "date": "2026-Apr-09",
+    "content": "our work comparing hierarhical sequence processing mechanisms across artificial and biological intelligences at accepted as a full paper at CogSci 2026"
   }
 ]
