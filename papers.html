@@ -85,16 +85,16 @@
 
         // --- Title (clickable if link given) ---
         const titleHTML = p.link
-          ? `<a href="${p.link}" target="_blank" style="color:#000; text-decoration:underline; font-size:0.95em; font-weight:400;">${p.title}</a>`
-          : `<span style="font-size:0.95em; font-weight:400;">${p.title}</span>`;
+          ? `<a href="${p.link}" target="_blank" style="color:#000; text-decoration:underline; font-size:12.5px; font-weight:400;">${p.title}</a>`
+          : `<span style="font-size:12.5px; font-weight:400;">${p.title}</span>`;
 
         // --- Type in square brackets ---
-        const typeHTML = p.type ? ` <span style="font-size:0.9em; font-weight:300;">[${p.type}]</span>` : '';
+        const typeHTML = p.type ? ` <span style="font-size:9px; font-weight:300;">[${p.type}]</span>` : '';
 
         // --- Year & Status inline with title ---
         const metaText = [p.status, p.year].filter(Boolean).join(', ');
         const metaHTML = metaText
-          ? `<span style="font-style:italic; color:#555; font-size:0.9em; margin-left:6px;">${metaText}</span>`
+          ? `<span style="font-style:italic; color:#555; font-size:10.5px; margin-left:6px;">${metaText}</span>`
           : '';
 
         // --- Links ---
@@ -105,7 +105,7 @@
           }
         }
         const linksHTML = links.length
-          ? `<div style="font-size:0.8em; color:#555;">&lt ${links.join(' / ')} &gt</div>`
+          ? `<span style="font-size:10px; color:#555;">&lt ${links.join(' / ')} &gt</span>`
           : '';
 
         // --- Authors ---
@@ -114,21 +114,21 @@
           if (parts.length === 1) return authors;
           return parts.slice(0, -1).join(', ') + ' & ' + parts[parts.length - 1];
         };
-        const authorsHTML = `<span style="font-size:0.9em">${formatAuthors(p.authors || '').replaceAll(
+        const authorsHTML = `<span style="font-size:11.5px">${formatAuthors(p.authors || '').replaceAll(
           MyName,
           `<span style="font-weight:500;">${MyName}</span>`
         )}</span>`;
 
         // --- Venue ---
         const venueLine = (p.venue || p.journal || p.conference)
-? `<div style="font-size:0.9em;\"><em>${p.venue || p.journal || p.conference}</em>${p.awards ? ` <span style="font-size:0.8em; color:#777;">${p.awards}</span>` : ''}</div>`
+? `<span style="font-size:11px;\"><em>${p.venue || p.journal || p.conference}</em> ${p.awards ? ` <span style="font-size:8px; color:#777;">${p.awards}</span>` : ''}</span>`
           : '';
 
         li.innerHTML = `
           <div>${titleHTML}${typeHTML}${metaHTML}</div>
           <div>${authorsHTML}</div>
-          ${venueLine}
-          ${linksHTML}
+          <div>${venueLine}</div>
+          <div>${linksHTML}</div>
         `;
 
         list.appendChild(li);
@@ -160,27 +160,27 @@
 
         // --- Title (clickable if link given) ---
         const titleHTML = p.link
-          ? `<a href="${p.link}" target="_blank" style="color:#000; text-decoration:underline; font-size:0.95em; font-weight:400;">${p.title}</a>`
-          : `<span style="font-size:0.95em; font-weight:400;">${p.title}</span>`;
+          ? `<a href="${p.link}" target="_blank" style="color:#000; text-decoration:underline; font-size:12.5px; font-weight:400;">${p.title}</a>`
+          : `<span style="font-size:12.5px; font-weight:400;">${p.title}</span>`;
 
         // --- Type in square brackets ---
-        const typeHTML = p.type ? ` <span style="font-size:0.95em; font-weight:300;">[${p.type}]</span>` : '';
+        const typeHTML = p.type ? ` <span style="font-size:9px; font-weight:300;">[${p.type}]</span>` : '';
 
         // --- Year & Status inline with title ---
         const metaText = [p.status, p.year].filter(Boolean).join(', ');
         const metaHTML = metaText
-          ? `<span style="font-style:italic; color:#555; font-size:0.9em; margin-left:6px;">${metaText}</span>`
+          ? `<span style="font-style:italic; font-weight:300; color:#555; font-size:10.5px; margin-left:6px;">${metaText}</span>`
           : '';
 
         // --- Links ---
         const links = [];
         if (p.links) {
           for (const [name, url] of Object.entries(p.links)) {
-            links.push(`<a href="${url}" target="_blank" style="color:#000; font-size:0.8em; text-decoration:underline;">${name}</a>`);
+            links.push(`<a href="${url}" target="_blank" style="color:#000; text-decoration:underline; font-size:10px;">${name}</a>`);
           }
         }
         const linksHTML = links.length
-          ? `<div style="font-size:0.8em; color:#555;">[ ${links.join(' / ')} ]</div>`
+          ? `<span style="font-size:10.5px; color:#555;">&lt ${links.join(' / ')} &gt</span>`
           : '';
 
         // --- Authors ---
@@ -189,11 +189,11 @@
           if (parts.length === 1) return authors;
           return parts.slice(0, -1).join(', ') + ' & ' + parts[parts.length - 1];
         };
-        const authorsHTML = `<span style="font-size:0.9em">${formatAuthors(p.authors || '')} </span>`;
+        const authorsHTML = `<span style="font-size:11.5px">${formatAuthors(p.authors || '')} </span>`;
 
         // --- Venue ---
         const venueLine = (p.venue || p.journal || p.conference)
-          ? `<div style="font-size:0.9em;"><em>${p.venue || p.journal || p.conference}</em>${p.awards ? ` <span style="font-size:0.75em; color:#777;">${p.awards}</span>` : ''}</div>`
+          ? `<span style="font-size:11px;"><em>${p.venue || p.journal || p.conference}</em>${p.awards ? ` <span style="font-size:8px; color:#777;">${p.awards}</span>` : ''}</span>`
           : '';
 
         li.innerHTML = `
