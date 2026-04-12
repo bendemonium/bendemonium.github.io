@@ -20,18 +20,19 @@ class News extends HTMLElement {
 
   parseDate(rawDate) {
     const monthMap = {
-      Jan: 1,
-      Feb: 2,
-      Mar: 3,
-      Apr: 4,
-      May: 5,
-      Jun: 6,
-      Jul: 7,
-      Aug: 8,
-      Sep: 9,
-      Oct: 10,
-      Nov: 11,
-      Dec: 12,
+      jan: 1,
+      feb: 2,
+      mar: 3,
+      apr: 4,
+      may: 5,
+      jun: 6,
+      jul: 7,
+      aug: 8,
+      sep: 9,
+      oct: 10,
+      nov: 11,
+      dec: 12,
+      sept: 9,
     };
 
     const normalized = String(rawDate).trim();
@@ -72,25 +73,23 @@ class News extends HTMLElement {
       const rawNews = await response.json();
 
       const newsData = rawNews
-        .map(item => {
+        .map((item, index) => {
           const parsedDate = this.parseDate(item.date);
           return {
             date: item.date,
             content: item.content,
             parsedDate,
+            parsedTimestamp: parsedDate ? parsedDate.getTime() : null,
+            originalIndex: index,
           };
         })
         .sort((a, b) => {
-          if (a.parsedDate && b.parsedDate) {
-            return b.parsedDate - a.parsedDate;
+          const aTime = a.parsedTimestamp ?? -Infinity;
+          const bTime = b.parsedTimestamp ?? -Infinity;
+          if (aTime !== bTime) {
+            return bTime - aTime;
           }
-          if (a.parsedDate) {
-            return -1;
-          }
-          if (b.parsedDate) {
-            return 1;
-          }
-          return 0;
+          return a.originalIndex - b.originalIndex;
         });
 
       const newsList = this.querySelector('#news-list');
