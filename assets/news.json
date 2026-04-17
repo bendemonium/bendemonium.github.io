@@ -1,10 +1,13 @@
 [
   {
     "date": "2025-Oct-23",
-    "content": "talk @ <a href=\"https://www.cmu.edu/dietrich/psychology/caoslab/\" target=\"_blank\" style=\"color: #000; text-decoration: underline;\">CAOs Lab</a>, Carnegie Mellon University: an LoT for hiearchical sequence processing and its complexity"
+    "content": "talk @ <a href=\"https://www.cmu.edu/dietrich/psychology/caoslab/\" target=\"_blank\" style=\"color: #000; text-decoration: underline;\">CAOs Lab</a>, Carnegie Mellon: an LoT for hiearchical sequence processing and its complexity"
   },
   {
     "date": "2026-Apr-09",
     "content": "our work comparing hierarchical sequence processing mechanisms across artificial and biological intelligences accepted as a full paper at CogSci 2026"
-  }
+  },
+  {
+    "date": "2026-Jun-01",
+    "content": "now a predoc w/ <a href=\"https://scholar.google.com/citations?user=T5Xw7kUAAAAJ&hl=en\" target=\"_blank\" style=\"color: #000; text-decoration: underline;\">Prof. Lexi Decker</a> @ WashU, setting up the <a href=\"https://www.deckerlab.com\" target=\"_blank\" style=\"color: #000; text-decoration: underline;\">How We Learn Lab</a> where we'll be studying memory and attention"
 ]
