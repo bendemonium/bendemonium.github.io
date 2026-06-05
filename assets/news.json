@@ -21,6 +21,10 @@
   },
   {
     "date": "2026-Jun-14",
-    "content": "check out <i>Chiharu Shiota: The Space Between Us</i> curated by Tereza de Arruda at the <a href=\"https://www.bienaldecuritiba.org\" target=\"_blank\" style=\"color: #000; text-decoration: underline;\">16th Curitaba Biennial - THRESHOLDS</a> that's on exhibition June 14-November 15 -- it's a stunning installation and you may even find my self-portrait lurking in there"
+<<<<<<< HEAD
+    "content": "check out <i>Chiharu Shiota: The Space Between Us</i> curated by Tereza de Arruda at the <a href=\"https://www.bienaldecuritiba.org\" target=\"_blank\" style=\"color: #000; text-decoration: underline;\">16th Curitaba Biennial - THRESHOLDS</a> that's on exhibition June 14-November 15 -- it's a stunning installation and you may even find my self-portrait lurking in there!"
+=======
+    "content": "check out <i>Chiharu Shiota: The Space Between Us</i> curated by Tereza de Arruda @ the <a href=\"https://www.bienaldecuritiba.org\" target=\"_blank\" style=\"color: #000; text-decoration: underline;\">16th Curitaba Biennial - THRESHOLDS</a> that's on exhibition June 14-November 15 -- it's a stunning installation and you may even find my self-portrait lurking in there!"
+>>>>>>> 4d380b9d903ae129498479b7f68b0e633bc32b07
   }
 ]
