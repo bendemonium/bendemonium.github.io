@@ -67,9 +67,10 @@
     .then(r => r.json())
     .then(items => {
       const list = document.getElementById('pub-list');
-      items.sort((a, b) => (b.year || 0) - (a.year || 0));
+      const visibleItems = items.filter(p => p.show !== false);
+      visibleItems.sort((a, b) => (b.year || 0) - (a.year || 0));
 
-      items.forEach(p => {
+      visibleItems.forEach(p => {
         const li = document.createElement('li');
         li.style.marginBottom = '14px';
 
@@ -124,9 +125,10 @@
     .then(r => r.json())
     .then(items => {
       const list = document.getElementById('ack-list');
-      items.sort((a, b) => (b.year || 0) - (a.year || 0));
+      const visibleItems = items.filter(p => p.show !== false);
+      visibleItems.sort((a, b) => (b.year || 0) - (a.year || 0));
 
-      items.forEach(p => {
+      visibleItems.forEach(p => {
         const li = document.createElement('li');
         li.style.marginBottom = '14px';
 

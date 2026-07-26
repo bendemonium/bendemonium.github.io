@@ -71,15 +71,16 @@
       
       // Define status order
       const statusOrder = { "in prep": 1, "under review": 2, "in press": 3 };
+      const visibleItems = items.filter(p => p.show !== false);
       
-      items.sort((a, b) => {
+      visibleItems.sort((a, b) => {
         const statusA = statusOrder[a.status?.toLowerCase()] || 4;
         const statusB = statusOrder[b.status?.toLowerCase()] || 4;
         if (statusA !== statusB) return statusA - statusB;
         return (b.year || 0) - (a.year || 0);
       });
 
-      items.forEach(p => {
+      visibleItems.forEach(p => {
         const li = document.createElement('li');
         li.style.marginBottom = '10px';
 
@@ -146,15 +147,16 @@
       
       // Define status order
       const statusOrder = { "in prep": 1, "under review": 2, "in press": 3 };
+      const visibleItems = items.filter(p => p.show !== false);
       
-      items.sort((a, b) => {
+      visibleItems.sort((a, b) => {
         const statusA = statusOrder[a.status?.toLowerCase()] || 4;
         const statusB = statusOrder[b.status?.toLowerCase()] || 4;
         if (statusA !== statusB) return statusA - statusB;
         return (b.year || 0) - (a.year || 0);
       });
 
-      items.forEach(p => {
+      visibleItems.forEach(p => {
         const li = document.createElement('li');
         li.style.marginBottom = '10px';
 
