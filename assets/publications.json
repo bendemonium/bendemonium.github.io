@@ -16,7 +16,9 @@
     "title": "Stochastic Parrot See, Stochastic Parrot Do: Hierarchical Sequence Processing Across Artificial and Biological Intelligences",
     "year": "2026",
     "venue": "Proceedings of the Annual Meeting of the Cognitive Science Society, Volume 48 (CogsSci 2026)",
-    "bsky thread": "https://bsky.app/profile/rbanda.bsky.social/post/3mrhpvx7zk226",
+    "links" : {
+      "bsky thread": "https://bsky.app/profile/rbanda.bsky.social/post/3mrhpvx7zk226"
+    },
     "show": true
   }
 ]
