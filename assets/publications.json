@@ -3,11 +3,31 @@
     "authors": "Ridhi Bandaru, Abhishek Dedhe, Stephen Ferrigno, Steven T. Piantadosi, Jessica F. Cantlon",
     "title": "One Cognitively Plausible Language of Thought for Hierarchical Sequence Generation",
     "status": "In prep",
+    "venue": "Cognition",
     "show": false
   },
   {
     "authors": "Mukund Choudhary, Ridhi Bandaru, Ananya Agrawal, Jessica F. Cantlon, Abhishek Dedhe, Monojit Choudhury",
     "title": "Mechanisms behind Hierarchical Sequence Processing in Biological and Artificial Intelligences",
+    "status": "In prep",
+    "venue": "Nature Human Behaviour",
+    "show": false
+  },
+  {
+    "authors": "Ridhi Bandaru, Aditya Yedetore, Najoung Kim",
+    "title": "Geometric Signatures of Respresentations in Models that Compostionally Generalize",
+    "status": "In prep",
+    "show": false
+  },
+  {
+    "authors": "Ridhi Bandaru, Alexandra Decker",
+    "title": "Retroactive Representation Modification during Transfer Learning",
+    "status": "In prep",
+    "show": false 
+  },
+  {
+    "authors": "Ridhi Bandaru, Abhishek Dedhe, Ananya Agrawal, Mukund Choudhary, Monojit Choudhury",
+    "title": "Hierarchical Sequence Processing Across Artificial and Biological Intelligences",
     "status": "In prep",
     "show": false
   },
