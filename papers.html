@@ -3,29 +3,16 @@
 <head>
     <script src="assets/components/navbar.js" defer></script>
     <script src="assets/components/name.js"></script>
+    <script src="assets/components/aside.js" defer></script>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>ridhi bandaru >:-]</title>
 	<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-	<style>
-		body {
-			margin: 0;
-			padding: 0;
-			font-family: 'Calibri Light', Calibri, Arial, sans-serif;
-			font-weight: 300;
-			display: flex;
-			color: #000;
-		}
-		.main-content {
-			margin-left: 80px;
-			padding: 40px;
-			width: calc(100% - 60px);
-            font-family: Helvetica, Arial, sans-serif;
-		}
-	</style>
+	<link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
 	<nav-bar></nav-bar>
+	<div class="page-body">
 	<div class="main-content">
 		<name-bar></name-bar>
         <div style="position:sticky;top:0;">
@@ -56,7 +43,8 @@
                     </div>
             </section>
         </div>
-        </div>
+	</div>
+	<page-aside></page-aside>
 	</div>
 </body>
 </html>

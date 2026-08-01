@@ -1,0 +1,27 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Calibri Light', Helvetica, Calibri, Arial, sans-serif;
+	font-weight: 300;
+	display: flex;
+	color: #000;
+}
+
+.main-content {
+	margin-left: 80px;
+	padding: 40px;
+	width: calc(100% - 60px);
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+
+
+.page-body {
+	display: flex;
+	align-items: flex-start;
+	width: 100%;
+}
+
+p {
+	font-size: 12pt;
+}

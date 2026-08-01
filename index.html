@@ -7,61 +7,58 @@
     <script src="assets/components/navbar.js" defer></script>
 	<script src="assets/components/name.js" defer></script>
 	<script src="assets/components/news.js"></script>
+	<script src="assets/components/aside.js" defer></script>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>ridhi bandaru >:-]</title>
 	<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+	<link rel="stylesheet" href="assets/styles.css">
 	<style>
 		body {
-			margin: 0;
-			padding: 0;
-			font-family: 'Calibri Light', Helvetica, Calibri, Arial, sans-serif;
-			font-weight: 300;
-			display: flex;
-			color: #000;
 			justify-content: center;     /* center vertically */
     		align-items: center;         /* center horizontally */
-		}
-		.main-content {
-			margin-left: 80px;
-			padding: 40px;
-			width: calc(100% - 60px);
-			font-family: Helvetica;
 		}
 	</style>
 </head>
 <body>
 	<nav-bar></nav-bar>
-	<div class="main-content">
-		<name-bar></name-bar>
-		<p style="color: rgba(203, 0, 0);">NAMASTE -- this site is still under construction. thanks for stopping by! be up soon.</p>
+	<div class="page-body">
+		<div class="main-content">
+			<name-bar></name-bar>
+			<p style="color: rgba(203, 0, 0);">NAMASTE -- this site is still under construction. thanks for stopping by! be up soon.</p> <aside-note><img src="assets/images/portrait_lab5.jpg" style="width: 80%; padding-right: 10%;">
+																																															<img src="assets/images/portrait_lab4.jpg" style="width: 80%; padding-right: 10%;">
+																																										</aside-note>
 
-        <div class="about-container" style="display: flex; gap: 32px; align-items: flex-start; width: 100%; max-width: 9.5in; padding-left: min(10%, 20px); padding-top: 20px; padding-bottom: 30px;">
-			<div style="width:20%; min-width: 100px; display: flex; flex-direction: column; align-items: left; max-width: 3in;">
-				<img src="assets/xray1.jpeg" alt="Ridhi B" style="width: 80%; max-width: 150px; align-self: left; padding-bottom: 5%; padding-left:20px;" />
-				<!-- <ul style="font-family: 'Calibri Light', Helvetica, Calibri, Arial, sans-serif; padding-left: 10%; margin: 0; ">
-					<li style="font-size: 0.8em; font-weight: 300; padding-bottom: 1%;">most people really just say it like /ri:di:/ and that’s okay too!</li>
-					<li style="font-size: 0.8em; padding-bottom: 1%;">or, just /bɛn/ works!</li>
-                    <li style="font-size: 0.9em; padding-bottom: 1%;">bachelor’s degree: electronics and instrumentation engineering; minor in robotics and automation <span style="font-size: 0.8em;">(BITS Pilani, Hyderabad Campus)</span></li>
-                    <li style="font-size: 0.9em; padding-bottom: 1%;">master’s degree: data science <span style="font-size: 0.8em;">(UConn)</span></li>
-                    <li style="font-size: 0.9em; padding-bottom: 1%;">current full-time job: software engineer <span style="font-size: 0.8em;">(Centene Corp)</span></li>
-				</ul> -->
-				
-				<div class="under-image" style="font-size: 12px; color: black; text-align: center;">
-					<p>&lt<a href="https://bsky.app/profile/rbanda.bsky.social" style="text-decoration: none; color: #000;" target="_blank">bsky</a>&gt / &lt<a href="https://github.com/bendemonium" style="text-decoration: none; color: #000;" target="_blank">gh</a>&gt / &lt<a href="mailto:ridhib2422@gmail.com" style="text-decoration: none; color: #000;" target="_blank">email</a>&gt</p> 
-				</div>    
+			<div class="about-container" style="display: flex; gap: 32px; align-items: flex-start; width: 100%; max-width: 9.5in; padding-left: min(10%, 20px); padding-top: 20px; padding-bottom: 30px;">
+				<div style="width:20%; min-width: 100px; display: flex; flex-direction: column; align-items: left; max-width: 3in;">
+					<img src="assets/images/xray1.jpeg" alt="Ridhi B" style="width: 100%; max-width: 150px; align-self: left; padding-bottom: 5%; padding-left:20px;" /> 
+																																												
+					<!-- <ul style="font-family: 'Calibri Light', Helvetica, Calibri, Arial, sans-serif; padding-left: 10%; margin: 0; ">
+						<li style="font-size: 0.8em; font-weight: 300; padding-bottom: 1%;">most people really just say it like /ri:di:/ and that’s okay too!</li>
+						<li style="font-size: 0.8em; padding-bottom: 1%;">or, just /bɛn/ works!</li>
+                        <li style="font-size: 0.9em; padding-bottom: 1%;">bachelor’s degree: electronics and instrumentation engineering; minor in robotics and automation <span style="font-size: 0.8em;">(BITS Pilani, Hyderabad Campus)</span></li>
+                        <li style="font-size: 0.9em; padding-bottom: 1%;">master’s degree: data science <span style="font-size: 0.8em;">(UConn)</span></li>
+                        <li style="font-size: 0.9em; padding-bottom: 1%;">current full-time job: software engineer <span style="font-size: 0.8em;">(Centene Corp)</span></li>
+					</ul> -->
+
+					<div class="under-image" style="font-size: 12px; color: black; text-align: center;">
+						<p style="font-size: 9pt;">&lt<a href="https://bsky.app/profile/rbanda.bsky.social" style="text-decoration: none; color: #000;" target="_blank">bsky</a>&gt / &lt<a href="https://github.com/bendemonium" style="text-decoration: none; color: #000;" target="_blank">gh</a>&gt / &lt<a href="mailto:ridhib2422@gmail.com" style="text-decoration: none; color: #000;" target="_blank">email</a>&gt</p>
+					</div>
+				</div>
+				<div style="flex: 1; vertical-align: top; padding-right: min(10%,0.5in);">
+					<p>I'm <b>Ridhi Bandaru</b>, a predoctoral researcher with Lexi Decker at the How We Learn Lab, WashU.</p>
+					<!-- <ol style="font-size: 1.2em; font-family: 'Calibri Light', Helvetica, Calibri, Arial, sans-serif; font-weight: 0; padding-left: 15%;">
+						<li style="margin-bottom: 10px;">Human vs machine reasoning<aside-note>see <a href="research.html" style="color:#444;">research</a> for related questions I'm chewing on</aside-note></li>
+						<li style="margin-bottom: 10px;">Generalization in humans and machines</li>
+						<li style="margin-bottom: 10px;">Modeling human brain/behavior</li>
+                        <li style="margin-bottom: 10px;">Inductive biases and compositionality</li>
+                        <li style="margin-bottom: 10px;">Neurosymbolic modeling</li>
+					</ol> -->
+				</div>
 			</div>
-			<div style="flex: 1; vertical-align: top; padding-right: min(10%,0.5in);">
-				<ol style="font-size: 1.2em; font-family: 'Calibri Light', Helvetica, Calibri, Arial, sans-serif; font-weight: 0; padding-left: 15%;">
-					<li style="margin-bottom: 10px;">Human vs machine reasoning</li>
-					<li style="margin-bottom: 10px;">Generalization in humans and machines</li>
-					<li style="margin-bottom: 10px;">Modeling human brain/behavior</li>
-                    <li style="margin-bottom: 10px;">Inductive biases and compositionality</li>
-                    <li style="margin-bottom: 10px;">Neurosymbolic modeling</li>
-				</ol>
-			</div>
+			<news-box style="padding-top: 10px;"></news-box>
 		</div>
-		<news-box style="padding-top: 10px;"></news-box>
+		<page-aside></page-aside>
 	</div>
 </body>
 </html>
