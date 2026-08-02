@@ -29,10 +29,19 @@ p {
 
 a,
 a:visited,
-a:hover,
 a:active {
 	color: #000;
 	text-decoration: underline;
+}
+
+/* nav-bar links are navigation UI, not inline hyperlinks -- the class
+   selector here outranks the a:visited/a:active rules above regardless
+   of visited/hover/active state, so they never pick up an underline */
+.nav-item,
+.nav-item:visited,
+.nav-item:hover,
+.nav-item:active {
+	text-decoration: none;
 }
 
 /* ---- smartphone layout ---- */
