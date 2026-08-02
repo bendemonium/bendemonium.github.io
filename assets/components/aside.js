@@ -70,7 +70,7 @@
     connectedCallback() {
       this.style.cssText = `
         position: relative;
-        flex: 0 0 240px;
+        flex: 0 0 min(20%, 240px);
         margin-left: 1.5in;
       `;
 
