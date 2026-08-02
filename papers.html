@@ -15,9 +15,9 @@
 	<div class="page-body">
 	<div class="main-content">
 		<name-bar></name-bar>
-        <div class="pub-box" style="width: 90%; max-width: 8.5in; color: #000; padding-left: 24px 0 0; ">
+        <div class="pub-box" style="width: 90%; max-width: 9n; color: #000; padding-left: 24px 0 0; ">
                 <div style="width: 100%; box-sizing: border-box;">
-                    <ul id="pub-list" style="list-style: none; padding: 0; margin: 0; font-size: 0.9em; font-family: Helvetica, Calibri, Arial, sans-serif;"></ul>
+                    <ul id="pub-list" style="list-style: none; padding: 24px; margin: 0; font-size: 0.9em; font-family: Helvetica, Calibri, Arial, sans-serif;"></ul>
                 </div>
             </div>
 	</div>
@@ -47,7 +47,7 @@
 
       visibleItems.forEach(p => {
         const li = document.createElement('li');
-        li.style.marginBottom = '10px';
+        li.style.cssText = 'display: flex; gap: 12px; align-items: flex-start; margin-bottom: 14px;';
 
         // --- Title (clickable if link given) ---
         const titleHTML = p.link
@@ -57,11 +57,9 @@
         // --- Type in square brackets ---
         const typeHTML = p.type ? ` <span style="font-size:9px; font-weight:300;">[${p.type}]</span>` : '';
 
-        // --- Year & Status inline with title ---
+        // --- Year & Status: right-aligned column to the left of the title ---
         const metaText = [p.status, p.year].filter(Boolean).join(', ');
-        const metaHTML = metaText
-          ? `<span style="font-style:italic; color:#555; font-size:10.5px; margin-left:6px;">${metaText}</span>`
-          : '';
+        const metaHTML = `<div style="width: 64px; flex-shrink: 0; text-align: right; font-style: italic; color: #555; font-size: 10.5px;">${metaText}</div>`;
 
         // --- Links ---
         const links = [];
@@ -90,11 +88,15 @@
 ? `<span style="font-size:11px;\"><em>${p.venue || p.journal || p.conference}</em> ${p.awards ? ` <span style="font-size:8px; color:#777;">${p.awards}</span>` : ''}</span>`
           : '';
 
+        // Title sets the left edge; authors/venue/links line up beneath it.
         li.innerHTML = `
-          <div>${titleHTML}${typeHTML}${metaHTML}</div>
-          <div>${authorsHTML}</div>
-          <div>${venueLine}</div>
-          <div>${linksHTML}</div>
+          ${metaHTML}
+          <div style="flex: 1; min-width: 0;">
+            <div>${titleHTML}${typeHTML}</div>
+            <div>${authorsHTML}</div>
+            <div>${venueLine}</div>
+            <div>${linksHTML}</div>
+          </div>
         `;
 
         list.appendChild(li);
