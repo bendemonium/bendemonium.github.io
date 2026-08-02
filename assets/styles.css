@@ -35,23 +35,9 @@ p {
 
 	.main-content {
 		margin-left: 50px;
-		padding: 16px;
+		padding: 25px;
 		width: calc(100% - 50px);
 		box-sizing: border-box;
-	}
-
-	/* nav-bar's own <style> tag is injected after this stylesheet in
-	   document order, so it wins cascade ties without !important here */
-	.sidebar {
-		min-width: 36px !important;
-		max-width: 46px !important;
-	}
-
-	.nav-item {
-		font-size: 11px !important;
-		margin: 10px 0 !important;
-		min-height: 36px !important;
-		max-height: 50px !important;
 	}
 
 	/* index.html's about-container: image + text side-by-side -> stacked */
