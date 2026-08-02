@@ -19,7 +19,7 @@ class Navbar extends HTMLElement {
         }
         .nav-item {
           color: #000000;
-          margin: 14px 0;
+          margin: 15px 0;
           writing-mode: vertical-rl;
           transform: rotate(180deg);
           text-align: right;
@@ -27,10 +27,10 @@ class Navbar extends HTMLElement {
           font-size: 13px;
           text-decoration: none;
           letter-spacing: 1px;
-          font-family: Helvetica, Calibri, Arial, sans-serif;
+          font-family: Helvetica;
           font-weight: 300;
           position: relative;
-          min-height: 50px;
+          min-height: 35px;
           max-height: 65px;
           display: flex;
           flex-direction: column;
@@ -43,7 +43,7 @@ class Navbar extends HTMLElement {
         <a class="nav-item" href="index.html">0.</a>
         <!--  <a class="nav-item" href="about.html">about</a> --!>
         <a class="nav-item" href="research.html">research</a>
-        <a class="nav-item" href="papers.html">papers</a>
+        <a class="nav-item" href="papers.html">publications</a>
         <a class="nav-item" href="other.html">other artifacts</a>
         <a class="nav-item" href="call.html">call me out</a>
       </nav>

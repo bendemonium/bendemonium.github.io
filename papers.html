@@ -7,7 +7,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>ridhi bandaru >:-]</title>
-	<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="assets/favicon.png">
 	<link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
@@ -15,34 +15,11 @@
 	<div class="page-body">
 	<div class="main-content">
 		<name-bar></name-bar>
-        <div style="position:sticky;top:0;">
-            <nav id="hbar" style="display:flex;gap:12px;align-items:center;padding: 0px 12px;font-family:Helvetica,Arial,sans-serif; color: #000;">
-                <!-- <button data-target="s1" style="border:none;padding:6px 10px;cursor:pointer;font-weight:400; background: hsla(0, 0%, 100%, 0);">[objective / active projects]</button> -->
-                <button data-target="s2" style="border:none;padding:6px 10px;cursor:pointer;font-weight:400; background: hsla(0, 0%, 100%, 0);">[authored]</button>
-                <button data-target="s3" style="border:none;padding:6px 10px;cursor:pointer;font-weight:400; background: hsla(0, 0%, 100%, 0);">[acknowledged in]</button>
-            </nav>
-        </div>
-        <div id="stage" style="position:relative;">
-          <!-- <section id="s1" style="position:absolute;inset:0;padding:24px;box-sizing:border-box;display:block;">
-                <div class="research" style="width: 90%; max-width: 8.5in; color: #000; padding: 12px; ">
-                        
-                    </div>
-            </section> -->
-            <section id="s2" style="position:absolute;inset:0;padding:24px;box-sizing:border-box;display:block;">
-                <div class="pub-box" style="width: 90%; max-width: 8.5in; color: #000; padding: 0px; ">
-                        <div style="width: 100%; box-sizing: border-box;">
-                            <ul id="pub-list" style="list-style: none; padding: 0; margin: 0; font-size: 0.9em; font-family: Helvetica, Calibri, Arial, sans-serif;"></ul>
-                        </div>
-                    </div>
-            </section>
-            <section id="s3" style="position:absolute;inset:0;padding:24px;box-sizing:border-box;display:none;">
-                <div class="pub-box" style="width: 90%; max-width: 8.5in; color: #000; padding: 0px; ">
-                        <div style="width: 100%; box-sizing: border-box;">
-                            <ul id="ack-list" style="list-style: none; padding: 0; margin: 0; font-size: 0.9em; font-family: Helvetica, Calibri, Arial, sans-serif;"></ul>
-                        </div>
-                    </div>
-            </section>
-        </div>
+        <div class="pub-box" style="width: 90%; max-width: 8.5in; color: #000; padding: 24px 0 0; ">
+                <div style="width: 100%; box-sizing: border-box;">
+                    <ul id="pub-list" style="list-style: none; padding: 0; margin: 0; font-size: 0.9em; font-family: Helvetica, Calibri, Arial, sans-serif;"></ul>
+                </div>
+            </div>
 	</div>
 	<page-aside></page-aside>
 	</div>
@@ -124,108 +101,4 @@
       });
     })
     .catch(err => console.error('Error loading publications.json:', err));
-</script>
-
-<script>
-
-  fetch('assets/acks.json')
-    .then(r => r.json())
-    .then(items => {
-      const list = document.getElementById('ack-list');
-      
-      // Define status order
-      const statusOrder = { "in prep": 1, "under review": 2, "in press": 3 };
-      const visibleItems = items.filter(p => p.show !== false);
-      
-      visibleItems.sort((a, b) => {
-        const statusA = statusOrder[a.status?.toLowerCase()] || 4;
-        const statusB = statusOrder[b.status?.toLowerCase()] || 4;
-        if (statusA !== statusB) return statusA - statusB;
-        return (b.year || 0) - (a.year || 0);
-      });
-
-      visibleItems.forEach(p => {
-        const li = document.createElement('li');
-        li.style.marginBottom = '10px';
-
-        // --- Title (clickable if link given) ---
-        const titleHTML = p.link
-          ? `<a href="${p.link}" target="_blank" style="color:#000; text-decoration:underline; font-size:12.5px; font-weight:400;">${p.title}</a>`
-          : `<span style="font-size:12.5px; font-weight:400;">${p.title}</span>`;
-
-        // --- Type in square brackets ---
-        const typeHTML = p.type ? ` <span style="font-size:9px; font-weight:300;">[${p.type}]</span>` : '';
-
-        // --- Year & Status inline with title ---
-        const metaText = [p.status, p.year].filter(Boolean).join(', ');
-        const metaHTML = metaText
-          ? `<span style="font-style:italic; font-weight:300; color:#555; font-size:10.5px; margin-left:6px;">${metaText}</span>`
-          : '';
-
-        // --- Links ---
-        const links = [];
-        if (p.links) {
-          for (const [name, url] of Object.entries(p.links)) {
-            links.push(`<a href="${url}" target="_blank" style="color:#000; text-decoration:underline; font-size:10px;">${name}</a>`);
-          }
-        }
-        const linksHTML = links.length
-          ? `<span style="font-size:10.5px; color:#555;">&lt ${links.join(' / ')} &gt</span>`
-          : '';
-
-        // --- Authors ---
-        const formatAuthors = (authors) => {
-          const parts = authors.split(', ');
-          if (parts.length === 1) return authors;
-          return parts.slice(0, -1).join(', ') + ' & ' + parts[parts.length - 1];
-        };
-        const authorsHTML = `<span style="font-size:11.5px">${formatAuthors(p.authors || '')} </span>`;
-
-        // --- Venue ---
-        const venueLine = (p.venue || p.journal || p.conference)
-          ? `<span style="font-size:11px;"><em>${p.venue || p.journal || p.conference}</em>${p.awards ? ` <span style="font-size:8px; color:#777;">${p.awards}</span>` : ''}</span>`
-          : '';
-
-        li.innerHTML = `
-          <div>${titleHTML}${typeHTML}${metaHTML}</div>
-          <div>${authorsHTML}</div>
-          ${venueLine}
-          ${linksHTML}
-        `;
-
-        list.appendChild(li);
-      });
-    })
-    .catch(err => console.error('Error loading acks.json:', err));
-</script>
-
-<script>
-  const buttons = [...document.querySelectorAll('#hbar button')];
-  const panels  = [...document.querySelectorAll('#stage section')];
-
-  function show(id, updateHash = true) {
-    // toggle panels
-    panels.forEach(p => p.style.display = p.id === id ? 'block' : 'none');
-
-    // style active button
-    buttons.forEach(b => {
-      if (b.dataset.target === id) {
-        b.style.textDecoration = 'underline';
-      } else {
-        b.style.textDecoration = 'none';
-      }
-    });
-
-    // update hash and focus
-    if (updateHash) history.replaceState(null, '', '#' + id);
-    const h = document.querySelector('#' + id + ' h2');
-    if (h) h.setAttribute('tabindex', '-1'), h.focus({ preventScroll: true });
-  }
-
-  buttons.forEach(b => b.addEventListener('click', () => show(b.dataset.target)));
-
-  window.addEventListener('load', () => {
-    const id = location.hash.slice(1);
-    show(panels.some(p => p.id === id) ? id : panels[0].id, false);
-  });
 </script>

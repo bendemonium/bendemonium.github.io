@@ -71,7 +71,7 @@
       this.style.cssText = `
         position: relative;
         flex: 0 0 240px;
-        margin-left: 32px;
+        margin-left: 1.5in;
       `;
 
       const label = this.getAttribute('label');
@@ -81,7 +81,7 @@
           position: absolute;
           top: 0;
           left: 10px;
-          font-family: 'Calibri Light', Helvetica, Calibri, Arial, sans-serif;
+          font-family: Helvetica;
           font-size: 10px;
           letter-spacing: 0.5px;
           color: #999;
