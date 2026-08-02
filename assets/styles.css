@@ -21,7 +21,6 @@ body {
 	display: flex;
 	align-items: flex-start;
 	width: 100%;
-	/* max-width: 9.5in; */
 }
 
 p {
