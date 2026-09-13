@@ -9,6 +9,16 @@ body {
 	line-height: 1.3;
 }
 
+::selection {
+	background: #af3002;
+	color: #fbecdb;
+}
+
+::-moz-selection {
+	background: #af3002;
+	color: #fbecdb;
+}
+
 .main-content {
 	margin-left: 80px;
 	padding: 40px;
