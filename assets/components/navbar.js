@@ -43,8 +43,7 @@ class Navbar extends HTMLElement {
         <a class="nav-item" href="index.html">0.</a>
         <!--  <a class="nav-item" href="about.html">about</a> --!>
         <a class="nav-item" href="research.html">research</a>
-        <a class="nav-item" href="papers.html">publications</a>
-
+        <a class="nav-item" href="papers.html">papers + WIP?</a>
         <a class="nav-item" href="call.html">call me out</a>
       </nav>
     `;
