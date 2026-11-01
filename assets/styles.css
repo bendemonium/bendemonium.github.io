@@ -21,15 +21,11 @@ body {
 
 .main-content {
 	margin-left: 80px;
-	padding: 40px;
-	width: calc(100% - 100px);
-}
-
-
-
-/* min-width: 0 lets the flex item shrink below its content's width
-   instead of pushing things off the right edge */
-.main-content {
+	padding: 40px 0 40px 40px;
+	flex: 1;
+	box-sizing: border-box;
+	/* lets the flex item shrink below its content's width instead of
+	   pushing things off the right edge */
 	min-width: 0;
 }
 
@@ -52,6 +48,9 @@ body {
 	display: flex;
 	align-items: flex-start;
 	width: 100%;
+	/* always keep at least 1in clear on the right */
+	padding-right: 1in;
+	box-sizing: border-box;
 }
 
 p {
@@ -81,15 +80,11 @@ a:active {
 		flex-direction: column;
 	}
 
-	/* nav becomes a horizontal top bar (see navbar.js), so no left margin;
-	   min-width: 0 stops wide children from stretching the flex item past
-	   the viewport */
+	/* nav becomes a horizontal top bar (see navbar.js), so no left margin */
 	.main-content {
 		margin-left: 0;
-		padding: 56px 20px 24px;
+		padding: 56px 0 24px 20px;
 		width: 100%;
-		min-width: 0;
-		box-sizing: border-box;
 	}
 
 	/* index.html's about-container: image + text side-by-side -> stacked */
