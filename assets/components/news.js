@@ -6,7 +6,7 @@ class News extends HTMLElement {
                     padding: 16px;
                     display: inline-block;
                     box-sizing: border-box;">
-			    <h3 style="margin-top: 0; font-size: 1em; font-weight: 300; font-family: 'Calibri Light', Helvetica, Calibri, Arial, sans-serif; color: #000000ff;">news / upcom!ng <hr style="border: 0.001px solid #3333332a"/> </h3>
+			    <h3 style="margin-top: 0; font-size: 1em; font-weight: 300; font-family: Helvetica; color: #000000ff;">news / upcom!ng <hr style="border: 0.001px solid #3333332a"/> </h3>
 				<div id="news-content" style="max-height: 3in; overflow-y: auto; width: 100%; box-sizing: border-box; scrollbar-width: thin; scrollbar-color: #f1f1f1 #000000;">
 					<ul id="news-list" style="list-style: none; padding-left: 0; margin: 0; font-size: 0.8em; font-family: 'Calibri Light', Helvetica, Calibri, Arial, sans-serif;">
 					</ul>
