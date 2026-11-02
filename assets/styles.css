@@ -19,9 +19,21 @@ body {
 	color: #fbecdb;
 }
 
+/* page margins. at full size: 1in on the right, 75px between the nav and
+   the content, and two 20px indents on index.html (about section + photo
+   row). below ~683px wide -- where the photo strip starts shrinking -- they
+   all scale down together, reaching their minimums at ~400px wide:
+   0.5cm for the margins, 0 for the indents */
+:root {
+	--margin-right: clamp(0.5cm, calc(27.24vw - 90.1px), 1in);
+	--gutter-left: clamp(0.5cm, calc(19.82vw - 60.4px), 75px);
+	--indent: clamp(0px, calc(7.07vw - 28.3px), 20px);
+}
+
 .main-content {
-	margin-left: 80px;
-	padding: 40px 0 40px 40px;
+	/* 45px = nav width */
+	margin-left: 45px;
+	padding: 40px 0 40px var(--gutter-left);
 	flex: 1;
 	box-sizing: border-box;
 	/* lets the flex item shrink below its content's width instead of
@@ -29,27 +41,35 @@ body {
 	min-width: 0;
 }
 
-/* index.html: when there's no room beside the photos, the name/links
-   block drops below them rather than getting squeezed. .links has a 3px
-   line-height, so any line that wrapped would overlap the one above it */
-.top-row {
-	flex-wrap: wrap;
-}
-
+/* index.html: .links can shrink to the row's width so the name never runs
+   past the end of the top line. min-width: 0 lets it go narrower than the
+   unwrapped name */
 .links {
-	flex-shrink: 0;
+	min-width: 0;
+	/* the name drops below the photos once it would come within 1cm of
+	   the end of the top line (flex-wrap counts margins) */
+	margin-right: 1cm;
 }
 
+/* .links has a 3px line-height, so any line that wrapped would overlap the
+   one above it: the short link lines stay on one line... */
 .links p {
 	white-space: nowrap;
+}
+
+/* ...and the name gets a real line-height so it can wrap cleanly. the
+   margin is trimmed to keep it in the same spot as with the 3px line */
+.links p:first-child {
+	white-space: normal;
+	line-height: 1.1;
+	margin: 13px 0;
 }
 
 .page-body {
 	display: flex;
 	align-items: flex-start;
 	width: 100%;
-	/* always keep at least 1in clear on the right */
-	padding-right: 1in;
+	padding-right: var(--margin-right);
 	box-sizing: border-box;
 }
 
