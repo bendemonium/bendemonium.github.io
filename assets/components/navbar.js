@@ -38,28 +38,6 @@ class Navbar extends HTMLElement {
           justify-content: flex-start;
           font-variation-settings: "wght" 300;
         }
-        @media (max-width: 600px) {
-          .sidebar {
-            max-width: none;
-            width: 100%;
-            height: 40px;
-            flex-direction: row;
-            align-items: center;
-            gap: 24px;
-            padding: 0 20px;
-            box-sizing: border-box;
-            border-bottom: 1px dashed #33333324;
-          }
-          .nav-item {
-            writing-mode: horizontal-tb;
-            transform: none;
-            margin: 0;
-            min-height: 0;
-            max-height: none;
-            padding: 10px 0;
-            font-size: 14px;
-          }
-        }
       </style>
       <nav class="sidebar">
         <a class="nav-item" href="index.html">0.</a>
