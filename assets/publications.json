@@ -3,15 +3,13 @@
     "authors": "Ridhi Bandaru, Abhishek Dedhe, Stephen Ferrigno, Steven T. Piantadosi, Jessica F. Cantlon",
     "title": "One Cognitively Plausible Language of Thought for Hierarchical Sequence Generation",
     "status": "In prep",
-    "venue": "Cognition",
-    "show": false
+    "show": true
   },
   {
-    "authors": "Mukund Choudhary, Ridhi Bandaru, Ananya Agrawal, Jessica F. Cantlon, Abhishek Dedhe, Monojit Choudhury",
-    "title": "Mechanisms behind Hierarchical Sequence Processing in Biological and Artificial Intelligences",
+    "authors": "Mukund Choudhary, Abhishek Dedhe, Ridhi Bandaru, Ananya Agrawal, Jessica F. Cantlon, Monojit Choudhury",
+    "title": "Parallels in Hierarchical Composition: Human and Machine Sequence Processing Compared",
     "status": "In prep",
-    "venue": "Nature Human Behaviour",
-    "show": false
+    "show": true
   },
   {
     "authors": "Ridhi Bandaru, Aditya Yedetore, Najoung Kim",
@@ -20,10 +18,10 @@
     "show": false
   },
   {
-    "authors": "Ridhi Bandaru, Alexandra Decker",
-    "title": "Retroactive Representation Modification during Transfer Learning",
+    "authors": "Alexandra L. Decker, Ridhi Bandaru, Steven L. Meisler, Noa Ofen, Xiaoquian Chai, John D.E. Gabrieli ",
+    "title": "Task-Switching and Memory Across Development",
     "status": "In prep",
-    "show": false 
+    "show": true 
   },
   {
     "authors": "Ridhi Bandaru, Abhishek Dedhe, Ananya Agrawal, Mukund Choudhary, Monojit Choudhury",
